@@ -2,13 +2,13 @@
 
 👨‍🎓 Ph.D. Candidate | 🌧️ Hydrologist | 🧠 Extreme Value Analyst  
 📍 University of Memphis | 🌐 From the high mountains of Nepal  
-📫 [Email me](mailto:nkafle@memphis.edu) | 🌍 [Google Scholar](https://scholar.google.com/) | 🐍 Pythonista
+📫 [Email me](mailto:nkafle@memphis.edu) | 🌍 [Google Scholar]([https://scholar.google.com/](https://scholar.google.com/citations?user=5x8WK2EAAAAJ&hl=en)) |🔗 [LinkedIn]([https://www.linkedin.com/in/your-linkedin-username/](https://www.linkedin.com/in/nischal-kafle-67073a195/))| 🐍 Pythonista
 
 ---
 
 ## About Me
 
-I am a Ph.D. candidate in Civil Engineering at the University of Memphis, specializing in **hydrology**, **extreme rainfall analysis**, and **non-stationary extreme value modeling**. My research aims to enhance the understanding and modeling of short-duration extreme rainfall, particularly for **urban infrastructure design** and **climate resilience**.
+I am a Ph.D. candidate in Civil Engineering at the University of Memphis, specializing in **stochastic hydrology**, **meteorology**, and **engineering designs**. My PhD research aims to enhance the understanding and modeling of extreme rainfall, particularly short-duration for **urban infrastructure design** and **climate resilience**.
 
 ---
 
@@ -18,6 +18,7 @@ I am a Ph.D. candidate in Civil Engineering at the University of Memphis, specia
 - 📊 Exploring **Bayesian** and **frequentist** methods for trend detection in short-duration rainfall extremes  
 - 🌦️ Integrating **radar data**, **SMAP**, and **machine learning (Transformers)** for drought and flood prediction  
 - 📍 Special focus on **Southeastern U.S.** and **Nepalese mountain regions**
+- 
 
 ---
 
@@ -51,7 +52,7 @@ I am a Ph.D. candidate in Civil Engineering at the University of Memphis, specia
 ## CV & Contact
 
 📄 [Download my CV](#) (link to your CV file or page)  
-🌐 [Personal Website](https://yourusername.github.io)  
+🌐 [Personal Website](https://github.com/Nischalcs50.github.io)  
 💬 Open to research and collaboration opportunities
 
 ---
