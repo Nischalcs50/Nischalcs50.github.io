@@ -49,9 +49,9 @@ I am a Ph.D. candidate in Civil Engineering at the University of Memphis, specia
 
 ---
 
-## CV & Contact
+## CV 
 
-📄 [Download my CV](#) (link to your CV file or page)  
+📄 [my CV](CV.md) (link to your CV file or page)  
 🌐 [Personal Website](https://github.com/Nischalcs50.github.io)  
 💬 Open to research and collaboration opportunities
 
