@@ -13,6 +13,9 @@
 
 I am a Ph.D. candidate in Civil Engineering at the University of Memphis, specializing in **stochastic hydrology**, **meteorology**, and **engineering designs**. My PhD research aims to enhance the understanding and modeling of extreme rainfall, particularly short-duration for **urban infrastructure design**, **climate resilience** and **flood risk management**.
 
+
+> _"Science, to me, is a process of decoding the unseen, especially where water and uncertainty meet."_ – Nischal Kafle
+![Alt text](docs/image.png)
 ---
 
 ## 🧪 Current Work & Research Highlights
@@ -74,4 +77,3 @@ I am a Ph.D. candidate in Civil Engineering at the University of Memphis, specia
 
 ---
 
-> _"Science, to me, is a process of decoding the unseen, especially where water and uncertainty meet."_ – Nischal Kafle
