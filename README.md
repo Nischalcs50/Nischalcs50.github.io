@@ -62,11 +62,9 @@ I am a Ph.D. candidate in Civil Engineering at the University of Memphis, specia
 - Facilitated ward committee meetings to incorporate local feedback into planning  
 
  
-
-
 ## CV 
 
-📄 [my CV](docs/General CV.pdf) (link to your CV file or page)  
+📄 [my CV](docs/General_CV.pdf) (link to your CV file or page)  
 🌐 [Personal Website](https://github.com/Nischalcs50.github.io)  
 💬 Open to research and collaboration opportunities
 
