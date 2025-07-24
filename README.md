@@ -17,9 +17,9 @@ I am a Ph.D. candidate in Civil Engineering at the University of Memphis, specia
 
 ## 🧪 Current Work & Research Highlights
 
-- 📦 **nsEVDx** – Open-source Python package for modeling non-stationary extreme value distributions  
+- 📦 [**nsEVDx**](https://github.com/Nischalcs50.nsEVDx) – Open-source Python package for modeling non-stationary extreme value distributions  
 - 📊 Trend detection in short-duration rainfall extremes using **Bayesian** and **frequentist** nonstationary GEV models  
-- 🌦️ Integrating **radar**, **SMAP**, and **Transformers** for drought and flood prediction in the **Southeastern U.S.** and **Nepalese mountain regions**
+- 🌦️ Integrating **Remote Sensing** and **Transformers** for drought and flood prediction
 
 - 🔍 **Neighborhood-based Trend Detection**  
   A novel spatial method to detect nonstationarity in rainfall extremes *(Submitted)*
@@ -33,11 +33,13 @@ I am a Ph.D. candidate in Civil Engineering at the University of Memphis, specia
 - ⛅ **Rainfall Disaggregation with Transformers**  
   Disaggregating daily rainfall to sub-daily (n-minute) using deep learning *(In preparation)*
 
-- 🛰️ **Rain Gauge Network Resolution Impact**  
+- 🛰️ **Impact of Spatio-temporal Resolution of Rain Gauge Network in DDF Values**  
   Studying how spatial/temporal gauge density influences DDF estimation *(AGU & ASCE-EWRI 2024)*
 
 - 🏙️ **Urban Flood Modeling**  
-  Simulated South Memphis flood (2018 Germantown storm) using PCSWMM; created maps & animations for city planning
+  Simulated Flood Events in South Memphis, historically undreserved community in Memphis, using 2018 Germantown storm in PCSWMM; created flood inundation maps & animations for city planning
+
+  Participated in community meetings in South memphis and informed the community about the flood risk enhancing their preparedness 
 
 - 📉 **Bias Correction & Downscaling of GCMs**  
   Compared statistical methods in Chilean basins under climate change scenarios
@@ -47,18 +49,19 @@ I am a Ph.D. candidate in Civil Engineering at the University of Memphis, specia
 
 
 ## Professional Experience
-
-### Consulting Engineer, Project Manager & GIS Expert  
-**Bright Future International Pvt. Ltd.** | Dec 2014 – Jul 2015  
-- Developed transportation master plans for 5 rural municipalities in Nepal’s hilly regions  
-- Facilitated ward committee meetings to incorporate local feedback into planning  
-
 ### Gazetted Officer – Water Resources Engineer  
 **Ministry of Irrigation, Department of Irrigation, Nepal** | Aug 2015 – Aug 2021  
 - Managed technical operations for 150+ irrigation and disaster mitigation projects, engaging local communities for active participation  
 - Led environmental impact assessments, hazard mapping, and community training programs  
 - Collaborated with international partners (ADB, World Bank) to develop water resource policies and procurement guidelines  
-- Conducted groundwater research for federal projects in Lumbini Province  
+- Conducted groundwater research for federal projects in Lumbini Province
+  
+### Consulting Engineer, Project Manager & GIS Expert  
+**Bright Future International Pvt. Ltd.** | Dec 2014 – Jul 2015  
+- Developed transportation master plans for 5 rural municipalities in Nepal’s hilly regions  
+- Facilitated ward committee meetings to incorporate local feedback into planning  
+
+ 
 
 
 ## CV 
