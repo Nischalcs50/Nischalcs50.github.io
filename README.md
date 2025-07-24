@@ -1,3 +1,8 @@
+---
+layout: default
+title: NISCHAL KAFLE
+---
+
 👨‍🎓 Ph.D. Candidate | 🌧️ Hydrologist | 🧠 Extreme Value Analyst |🐍 Pythonista  
 📍 University of Memphis | 🌐 From the high mountains of Nepal  
 📫 [nkafle@memphis.edu](mailto:nkafle@memphis.edu) | [nkafle.29@gmail.com](mailto:nkafle.29@gmail.com)  
