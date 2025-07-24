@@ -15,42 +15,51 @@ I am a Ph.D. candidate in Civil Engineering at the University of Memphis, specia
 
 ---
 
-## Current Work
+## 🧪 Current Work & Research Highlights
 
-- 📦 **nsEVDx** – An open-source Python package for modeling non-stationary extreme value distributions  
-- 📊 Exploring **Bayesian** and **frequentist** methods for trend detection in short-duration rainfall extremes  
-- 🌦️ Integrating **radar data**, **SMAP**, and **machine learning (Transformers)** for drought and flood prediction  
-- 📍 Special focus on **Southeastern U.S.** and **Nepalese mountain regions**
-- 
+- 📦 **nsEVDx** – Open-source Python package for modeling non-stationary extreme value distributions  
+- 📊 Trend detection in short-duration rainfall extremes using **Bayesian** and **frequentist** nonstationary GEV models  
+- 🌦️ Integrating **radar**, **SMAP**, and **Transformers** for drought and flood prediction in the **Southeastern U.S.** and **Nepalese mountain regions**
 
----
+- 🔍 **Neighborhood-based Trend Detection**  
+  A novel spatial method to detect nonstationarity in rainfall extremes *(Submitted)*
 
-## Research Interests
+- 📈 **Effect of Minimum Interevent Time (MIT)**  
+  Evaluating how MIT choices impact regional DDF curves *(Submitted)*
 
-- Non-stationary frequency analysis  
-- Short-duration depth-duration-frequency (DDF) curves  
-- Partial duration series and threshold selection  
-- Spatio-temporal trend detection  
-- Bayesian inference, MCMC, and copula modeling  
-- Python tools for hydrologic modeling
+- 🎯 **Spatially Independent Maxima Extraction**  
+  Using radar and storm motion to extract independent rainfall extremes *(AGU 2024, manuscript in prep)*
 
----
+- ⛅ **Rainfall Disaggregation with Transformers**  
+  Disaggregating daily rainfall to sub-daily (n-minute) using deep learning *(In preparation)*
 
-## Projects
+- 🛰️ **Rain Gauge Network Resolution Impact**  
+  Studying how spatial/temporal gauge density influences DDF estimation *(AGU & ASCE-EWRI 2024)*
 
-- **nsEVDx**: Non-stationary EVD modeling in Python – [GitHub repo](https://github.com/yourusername/nsEVDx)  
-- **RadarBlobDetect**: Detecting convective storms using radar imagery  
-- **TransformerDrought**: ML-based drought prediction using satellite and climate data  
+- 🏙️ **Urban Flood Modeling**  
+  Simulated South Memphis flood (2018 Germantown storm) using PCSWMM; created maps & animations for city planning
 
----
+- 📉 **Bias Correction & Downscaling of GCMs**  
+  Compared statistical methods in Chilean basins under climate change scenarios
 
-## Experience
+- 🌱 **Green Infrastructure Siting with ML**  
+  Applied machine learning to locate optimal GSI sites using hydrologic connectivity metrics
 
-- 🗳️ Conducted national and local elections in Nepal for 4000+ voters  
-- 🛠️ Gazetted Government Officer – Nepal  
-- 🌊 Research presentations at Tennessee Water Resources Symposium & NESex 2025
 
----
+## Professional Experience
+
+### Consulting Engineer, Project Manager & GIS Expert  
+**Bright Future International Pvt. Ltd.** | Dec 2014 – Jul 2015  
+- Developed transportation master plans for 5 rural municipalities in Nepal’s hilly regions  
+- Facilitated ward committee meetings to incorporate local feedback into planning  
+
+### Gazetted Officer – Water Resources Engineer  
+**Ministry of Irrigation, Department of Irrigation, Nepal** | Aug 2015 – Aug 2021  
+- Managed technical operations for 150+ irrigation and disaster mitigation projects, engaging local communities for active participation  
+- Led environmental impact assessments, hazard mapping, and community training programs  
+- Collaborated with international partners (ADB, World Bank) to develop water resource policies and procurement guidelines  
+- Conducted groundwater research for federal projects in Lumbini Province  
+
 
 ## CV 
 
