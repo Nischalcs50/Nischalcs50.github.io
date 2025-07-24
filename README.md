@@ -2,7 +2,7 @@
 
 👨‍🎓 Ph.D. Candidate | 🌧️ Hydrologist | 🧠 Extreme Value Analyst  
 📍 University of Memphis | 🌐 From the high mountains of Nepal  
-📫 [Email me](mailto:nkafle@memphis.edu)  
+📫 [nkafle@memphis.edu](mailto:nkafle@memphis.edu) | [nkafle.29@gmail.com](mailto:nkafle.29@gmail.com)  
 🌍 [Google Scholar](https://scholar.google.com/citations?user=5x8WK2EAAAAJ&hl=en)  
 🔗 [LinkedIn](https://www.linkedin.com/in/nischal-kafle-67073a195/) 
 🐍 Pythonista 
