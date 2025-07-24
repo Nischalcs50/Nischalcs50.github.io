@@ -5,7 +5,7 @@
 🔗 [LinkedIn](https://www.linkedin.com/in/nischal-kafle-67073a195/) 
 
 
----
+------------
 
 ## About Me
 
@@ -66,7 +66,7 @@ I am a Ph.D. candidate in Civil Engineering at the University of Memphis, specia
 ## CV 
 
 📄 [my CV](docs/General_CV.pdf) (link to your CV file or page)  
-🌐 [Personal Website](https://github.com/Nischalcs50.github.io)  
+🌐 [Personal Website](https://Nischalcs50.github.io)  
 💬 Open to research and collaboration opportunities
 
 ## 📚 References
