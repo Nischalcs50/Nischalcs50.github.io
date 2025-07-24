@@ -1,17 +1,17 @@
 # Nischal Kafle
 
-👨‍🎓 Ph.D. Candidate | 🌧️ Hydrologist | 🧠 Extreme Value Analyst  
+👨‍🎓 Ph.D. Candidate | 🌧️ Hydrologist | 🧠 Extreme Value Analyst |🐍 Pythonista  
 📍 University of Memphis | 🌐 From the high mountains of Nepal  
 📫 [nkafle@memphis.edu](mailto:nkafle@memphis.edu) | [nkafle.29@gmail.com](mailto:nkafle.29@gmail.com)  
 🌍 [Google Scholar](https://scholar.google.com/citations?user=5x8WK2EAAAAJ&hl=en)  
 🔗 [LinkedIn](https://www.linkedin.com/in/nischal-kafle-67073a195/) 
-🐍 Pythonista 
+
 
 ---
 
 ## About Me
 
-I am a Ph.D. candidate in Civil Engineering at the University of Memphis, specializing in **stochastic hydrology**, **meteorology**, and **engineering designs**. My PhD research aims to enhance the understanding and modeling of extreme rainfall, particularly short-duration for **urban infrastructure design** and **climate resilience**.
+I am a Ph.D. candidate in Civil Engineering at the University of Memphis, specializing in **stochastic hydrology**, **meteorology**, and **engineering designs**. My PhD research aims to enhance the understanding and modeling of extreme rainfall, particularly short-duration for **urban infrastructure design**, **climate resilience** and **flood risk management**.
 
 ---
 
