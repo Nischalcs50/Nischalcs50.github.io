@@ -3,7 +3,8 @@ layout: default
 title: NISCHAL KAFLE
 ---
 
-👨‍🎓 Ph.D. Candidate | 🌧️ Hydrologist | 🧠 Extreme Value Analyst |🐍 Pythonista  
+👨‍🎓 Ph.D. Candidate | 🌧️ Hydrologist | 🧠 Extreme Value Analyst
+🐍 Pythonista  
 📍 University of Memphis | 🌐 From the high mountains of Nepal  
 📫 [nkafle@memphis.edu](mailto:nkafle@memphis.edu) | [nkafle.29@gmail.com](mailto:nkafle.29@gmail.com)  
 🌍 [Google Scholar](https://scholar.google.com/citations?user=5x8WK2EAAAAJ&hl=en)  
@@ -27,9 +28,12 @@ I am a Ph.D. candidate in Civil Engineering at the University of Memphis, specia
 
 - 📦 [**nsEVDx**](https://github.com/Nischalcs50/nsEVDx) – Open-source Python package for modeling non-stationary extreme value distributions
 
+
 - 📊 Trend detection in extreme rainfall using **Bayesian** and **frequentist** approach
+
     
 - 🌦️ Integrating **Remote Sensing** and **Transformers** for drought and flood prediction
+
 
 - 🔍 **Neighborhood-based Trend Detection**  
   A novel spatial method to detect nonstationarity in rainfall extremes *(Submitted)*
