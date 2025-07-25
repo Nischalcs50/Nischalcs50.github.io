@@ -25,8 +25,10 @@ I am a Ph.D. candidate in Civil Engineering at the University of Memphis, specia
 
 ## 🧪 Current Work & Research Highlights
 
-- 📦 [**nsEVDx**](https://github.com/Nischalcs50/nsEVDx) – Open-source Python package for modeling non-stationary extreme value distributions  
-- 📊 Trend detection in extreme rainfall using **Bayesian** and **frequentist** approach  
+- 📦 [**nsEVDx**](https://github.com/Nischalcs50/nsEVDx) – Open-source Python package for modeling non-stationary extreme value distributions
+
+- 📊 Trend detection in extreme rainfall using **Bayesian** and **frequentist** approach
+    
 - 🌦️ Integrating **Remote Sensing** and **Transformers** for drought and flood prediction
 
 - 🔍 **Neighborhood-based Trend Detection**  
@@ -48,7 +50,6 @@ I am a Ph.D. candidate in Civil Engineering at the University of Memphis, specia
   Simulated flood events in South Memphis, a historically underserved community, using the 2018 Germantown storm in PCSWMM; created flood inundation maps & animations for city planning use  
 
   Participated in 3 community meetings, informing over 120 residents about localized flood risks and preparedness strategies, contributing to more informed local planning discussions
-
 
 - 📉 **Bias Correction & Downscaling of GCMs**  
   Compared statistical methods in Chilean basins under climate change scenarios
