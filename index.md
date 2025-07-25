@@ -26,7 +26,7 @@ I am a Ph.D. candidate in Civil Engineering at the University of Memphis, specia
 ## 🧪 Current Work & Research Highlights
 
 - 📦 [**nsEVDx**](https://github.com/Nischalcs50/nsEVDx) – Open-source Python package for modeling non-stationary extreme value distributions  
-- 📊 Trend detection in short-duration rainfall extremes using **Bayesian** and **frequentist** nonstationary GEV models  
+- 📊 Trend detection in extreme rainfall using **Bayesian** and **frequentist** approach  
 - 🌦️ Integrating **Remote Sensing** and **Transformers** for drought and flood prediction
 
 - 🔍 **Neighborhood-based Trend Detection**  
