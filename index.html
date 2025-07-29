@@ -93,6 +93,32 @@
         margin-left: 0;
       }
     }
+
+#slideshow-container {
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.1); /* light translucent background */
+  border-radius: 10px;
+}
+
+#slideshow-image {
+  max-width: 90%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #ccc;
+  margin-bottom: 1rem;
+}
+
+button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: #2d89ef;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
   </style>
 </head>
 <body>
@@ -243,6 +269,36 @@
 
     <hr />
   </div>
+<div id="slideshow-container">
+  <img id="slideshow-image" src="images/plot1.png" alt="Slideshow Image" />
+  <br />
+  <button onclick="nextImage()">Next ▶️</button>
+</div>
+
+<script>
+  const images = [
+    "images/plot1.png",
+    "images/plot2.bmp",
+    "images/plot3.gif",
+    "images/plot4.png"
+  ];
+
+  let currentIndex = 0;
+  const imgElement = document.getElementById("slideshow-image");
+
+  function showImage(index) {
+    imgElement.src = images[index];
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
+  }
+
+  // Auto slideshow every 5 seconds
+  setInterval(nextImage, 5000);
+</script>
+
 </body>
 </html>
 
