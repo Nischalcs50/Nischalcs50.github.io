@@ -275,16 +275,38 @@ button {
   
     <section id="photo" class="section">
     <h2>Gallery</h2>	
-	<div id="slideshow-container">
-	  <img id="slideshow-image" src="docs/plot1.png" alt="Slideshow Image" />
+	<div id="slideshow-container" style="
+	    background-color: white;
+	    padding: 10px;
+	    border: 1px solid #ccc;
+	    display: inline-block;
+	    text-align: center;
+	  ">
+	    <img id="slideshow-image" src="docs/plot1.png" alt="Slideshow Image" style="
+	      max-width: 100%;
+	      height: auto;
+	      display: block;
+	      margin: 0 auto 10px;
+	    " />
 	  <br />
-	  <button onclick="nextImage()">Next ▶️</button>
-	</div>
+	  <button onclick="nextImage()" style="
+		  padding: 8px 14px;
+		  font-size: 16px;
+		  background-color: #f2f2f2;
+		  color: #333;
+		  border: 1px solid #ccc;
+		  border-radius: 6px;
+		  cursor: pointer;
+		">
+		  Next ▶️
+	</button>
+         </div>
 
 	<script>
 	  const images = [
 	    "docs/plot1.png",
 	    "docs/plot2.jpg",
+	    "docs/storm.gif",  
 	    "docs/plot3.jpg",
 	    "docs/plot4.jpg",
 	    "docs/plot5.jpg"	  
@@ -302,8 +324,8 @@ button {
 	    showImage(currentIndex);
 	  }
 	
-	  // Auto slideshow every 5 seconds
-	  setInterval(nextImage, 5000);
+	  // Auto slideshow every 4 seconds
+	  setInterval(nextImage, 4000);
 	</script>
 	</section>
 
