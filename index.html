@@ -51,12 +51,16 @@
     .floating-object:nth-child(5) { left: 90%; animation-delay: 12s; width: 60px; height: 60px; }
 
     .sidebar {
-      position: fixed;
-      top: 80px;
-      left: 10px;
-      width: 200px;
-      z-index: 10;
-    }
+	  position: fixed;
+	  top: 80px;
+	  left: 10px;
+	  width: 200px;
+	  z-index: 10;
+	  background-color: white; /* This makes it white */
+	  padding: 1rem;
+	  border-radius: 8px;
+	  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Optional for depth */
+	}
 
     .sidebar ul {
       list-style: none;
@@ -92,7 +96,7 @@
   <!-- Sidebar Navigation -->
   <nav class="sidebar">
     <ul>
-      <li><a href="#about">About Me</a></li>
+      <li><a href="#About">About Me</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#awards">Recognitions</a></li>
       <li><a href="#experience">Experience</a></li>
@@ -161,7 +165,7 @@
     <section id="awards" class="section">
 	    <h2>🏆Recognitions & Awards</h2>
       <ul>
-        <li>Recognized as <strong>World-Class Achiever</strong><br> by Division of International Affairs, University of Memphis</li>
+        <li>Recognized as <strong>World-Class Achiever</strong> by Division of International Affairs, University of Memphis</li>
         <li>Graduate School Dissertation Completion Research Grants <strong>($5000)</strong><br> for summer (2025)</li> 
         <li>Graduate Assistantship, Department of Civil Engineering, University of Memphis (August 2021- Present)</li>
         <li>Award of Appreciation for outstanding performance as a Water Resources Engineer, Department of Irrigation 2018</li>
