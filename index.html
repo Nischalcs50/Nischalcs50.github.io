@@ -222,10 +222,17 @@ button {
 	    .research-content {
 	      max-height: 0;
 	      overflow: hidden;
-	      transition: max-height 0.4s ease;
+	      transition: 
+	      max-height 0.4s ease,
+	      opacity 0.3s ease,
+	      transform 0.3s ease;
+	      transform-origin: top;
+	      will-change: max-height, opacity, transform;
 	    }
 	    .research-card.active .research-content {
 	      max-height: 500px;
+	      opacity: 1;
+	      transform: scaleY(1);
 	      margin-top: 0.5rem;
 	    }
 	  </style>
