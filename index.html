@@ -41,7 +41,7 @@
     }
     .floating-object {
 	  position: absolute;
-	  bottom: -60px; /* Appear from further down */
+	  bottom: -75px; /* Appear from further down */
 	  width: 40px;
 	  height: 40px;
 	  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.7), rgba(0, 255, 255, 0.3));
@@ -59,10 +59,12 @@
       100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
     }
     .floating-object:nth-child(1) { left: 10%; animation-delay: 0s; }
-    .floating-object:nth-child(2) { left: 30%; animation-delay: 3s; width: 30px; height: 30px; }
-    .floating-object:nth-child(3) { left: 50%; animation-delay: 6s; width: 50px; height: 50px; }
-    .floating-object:nth-child(4) { left: 70%; animation-delay: 9s; width: 20px; height: 20px; }
-    .floating-object:nth-child(5) { left: 90%; animation-delay: 12s; width: 60px; height: 60px; }
+    .floating-object:nth-child(2) { left: 30%; animation-delay: 2s; width: 30px; height: 30px; }
+    .floating-object:nth-child(3) { left: 40%; animation-delay: 3s; width: 30px; height: 30px; }
+    .floating-object:nth-child(4) { left: 50%; animation-delay: 5s; width: 50px; height: 50px; }
+    .floating-object:nth-child(5) { left: 70%; animation-delay: 8s; width: 20px; height: 20px; }
+    .floating-object:nth-child(6) { left: 90%; animation-delay: 11s; width: 60px; height: 60px; }
+    .floating-object:nth-child(7) { left: 90%; animation-delay: 12s; width: 60px; height: 60px; }
 
     .sidebar {
 	  position: fixed;
@@ -387,33 +389,24 @@ button {
 
     <hr />
   
-    <section id="photo" class="section" style="margin-left: 250px; width: calc(100% - 250px);">
-     <div style="
-	      display: flex;
-	      flex-direction: column;
-	      align-items: center;
-	      justify-content: center;
-	      text-align: center;">
-	    <h2>🏞️ Gallery</h2>	
+    <section id="photo" class="section" style="margin-left: 220px; width: calc(100% - 220px);">
+     	    <h2 style="text-align: center;">🏞️ Gallery</h2>	
 		<div id="slideshow-container" style="
+		    margin: 0 auto
 		    width: 400px;
 		    height: 300px;
 		    background-color: white;
 		    padding: 10px;
 		    border: 1px solid #ccc;
-		    display: flex;
-		    flex-direction: column;
 		    align-items: center;
 		    justify-content: space-between;
 		    box-sizing: border-box;
-		    position: relative;
-		  ">
+		    position: relative;">
 		    <img id="slideshow-image" src="docs/plot1.png" alt="Slideshow Image" style="
 		      max-width: 100%;
 		      max-height: 85%;
 		      object-fit: contain;
-		      display: block;
-		    " />
+		      display: block;" />
 		  <button onclick="nextImage()" style="
 		      margin-top: 5px;
 		      padding: 6px 12px;
@@ -422,8 +415,7 @@ button {
 		      color: #333;
 		      border: 1px solid #ccc;
 		      border-radius: 6px;
-		      cursor: pointer;
-		    ">Next ▶️</button>
+		      cursor: pointer;">Next ▶️</button>
 	         </div>
      </div>
 		<script>
