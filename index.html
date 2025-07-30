@@ -389,62 +389,61 @@ button {
 
     <hr />
   
-    <section id="photo" class="section" style="margin-left: 180px; width: calc(100% - 180px);">
-     	    <h2 style="text-align: center;">🏞️ Gallery</h2>	
-		<div id="slideshow-container" style="
-		    margin: 0 auto;
-		    width: 400px;
-		    height: 300px;
-		    background-color: white;
-		    padding: 10px;
-		    border: 1px solid #ccc;
-		    align-items: center;
-		    justify-content: space-between;
-		    box-sizing: border-box;
-		    position: relative;
-		    display: flex;
-                    flex-direction: column;">
-		    <img id="slideshow-image" src="docs/plot1.png" alt="Slideshow Image" style="
-		      max-width: 100%;
-		      max-height: 85%;
-		      object-fit: contain;
-		      display: block;" />
-		  <button onclick="nextImage()" style="
-		      margin-top: 5px;
-		      padding: 6px 12px;
-		      font-size: 14px;
-		      background-color: #f2f2f2;
-		      color: #333;
-		      border: 1px solid #ccc;
-		      border-radius: 6px;
-		      cursor: pointer;">Next ▶️</button>
-	         </div>
-     </div>
-		<script>
-		  const images = [
-		    "docs/plot1.png",
-		    "docs/plot2.jpg",
-		    "docs/storm.gif",  
-		    "docs/plot3.jpg",
-		    "docs/plot4.jpg",
-		    "docs/plot5.jpg"	  
-		  ];
+    <section id="photo" class="section text-center">
+     	<h2>🏞️ Gallery</h2>
+	  <div class="d-flex justify-content-center">
+	    <div id="slideshow-container" style="
+	      width: 400px;
+	      height: 300px;
+	      background-color: white;
+	      padding: 10px;
+	      border: 1px solid #ccc;
+	      box-sizing: border-box;
+	      position: relative;
+	      display: flex;
+	      flex-direction: column;
+	      align-items: center;">
+	      <img id="slideshow-image" src="docs/plot1.png" alt="Slideshow Image" style="
+		        max-width: 100%;
+		        max-height: 85%;
+		        object-fit: contain;
+		        display: block;" />
+		      <button onclick="nextImage()" style="
+		        margin-top: 5px;
+		        padding: 6px 12px;
+		        font-size: 14px;
+		        background-color: #f2f2f2;
+		        color: #333;
+		        border: 1px solid #ccc;
+		        border-radius: 6px;
+		        cursor: pointer;">Next ▶️</button>
+		    </div>
+		  </div>
+	<script>
+	  const images = [
+	    "docs/plot1.png",
+	    "docs/plot2.jpg",
+	    "docs/storm.gif",  
+	    "docs/plot3.jpg",
+	    "docs/plot4.jpg",
+	    "docs/plot5.jpg"	  
+	  ];
 		
-		  let currentIndex = 0;
-		  const imgElement = document.getElementById("slideshow-image");
-		
-		  function showImage(index) {
-		    imgElement.src = images[index];
-		  }
-		
-		  function nextImage() {
-		    currentIndex = (currentIndex + 1) % images.length;
-		    showImage(currentIndex);
-		  }
-		
-		  // Auto slideshow every 7 seconds
-		  setInterval(nextImage, 7000);
-		</script>
+	  let currentIndex = 0;
+	  const imgElement = document.getElementById("slideshow-image");
+	
+	  function showImage(index) {
+	    imgElement.src = images[index];
+	  }
+	
+	  function nextImage() {
+	    currentIndex = (currentIndex + 1) % images.length;
+	    showImage(currentIndex);
+	  }
+	
+	  // Auto slideshow every 7 seconds
+	  setInterval(nextImage, 7000);
+	</script>
 </section>
 
 </body>
