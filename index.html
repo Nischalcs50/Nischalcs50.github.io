@@ -198,6 +198,11 @@ button {
 	  <h2>🧪 Current Research Areas & Highlights <span style="font-size: 0.8em;">(Click to Expand)</span></h2>
 	
 	  <style>
+	    .research-grid {
+	      display: grid;
+	      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	      gap: 1rem;
+	     }
 	    .research-card {
 	      background: #f9f9f9;
 	      border-radius: 1rem;
@@ -234,7 +239,8 @@ button {
 	      });
 	    });
 	  </script>
-	
+
+	<div class="research-grid">
 	  <div class="research-card">
 	    <div class="research-title">📦 nsEVDx</div>
 	    <div class="research-content">
@@ -321,24 +327,23 @@ button {
 		    <br> Examining and experimenting with the logical frameworks mentioned in the Upanishads
 	    </div>
 	  </div>
+	</div>
 	</section>
 
 
 	  <hr />
 
     <section id="awards" class="section">
-	    <h2>🏆 Recognitions & Awards</h2>
-      <ul>
-        <li>Recognized as <strong>World-Class Achiever</strong> by Division of International Affairs, University of Memphis</li>
-        <li>Graduate School Dissertation Completion Research Grants <strong>($5000)</strong><br> for summer (2025)</li> 
-        <li>Graduate Assistantship, Department of Civil Engineering, University of Memphis (August 2021- Present)</li>
-        <li>Award of Appreciation for outstanding performance as a Water Resources Engineer, Department of Irrigation 2018</li>
-        <li>Award of Appreciation for outstanding performance and conflict resolution works as an Election Officer, District Administration Office, Sindhupalchowk 2018</li>
-        <li>Awarded full <strong>Merit Based Scholarship</strong> to pursue bachelor’s in civil engineering after securing rank 26 among over ten thousand applicants in the national entrance exam, IOE, Tribhuvan University (2010)</li>
-
-        
-      </ul>
-    </section>
+	  <h2>🏆 Recognitions & Awards</h2>
+	  <ul style="line-height: 1.8; list-style-type: '🌟 '; padding-left: 1em;">
+	    <li><strong>World-Class Achiever</strong> — Honored by the Division of International Affairs, University of Memphis</li>
+	    <li><strong>$5000 Dissertation Completion Grant</strong> — Awarded for Summer 2025 by the Graduate School</li>
+	    <li><strong>Graduate Assistantship</strong> — Department of Civil Engineering, University of Memphis (Aug 2021 – Present)</li>
+	    <li><strong>Excellence in Engineering</strong> — Appreciation Award from the Department of Irrigation, Nepal (2018)</li>
+	    <li><strong>Leadership in Public Service</strong> — Recognition for conflict resolution as an Election Officer, Sindhupalchowk DAO (2018)</li>
+	    <li><strong>Full Merit-Based Scholarship</strong> — Secured Rank 26 in national IOE entrance exam among 10,000+ applicants (2010)</li>
+	  </ul>
+	</section>
 
     <hr />
 
