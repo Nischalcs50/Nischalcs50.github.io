@@ -445,7 +445,137 @@ button {
 	  setInterval(nextImage, 7000);
 	</script>
 </section>
+<!-- Trex Runner Game Section -->
+<section id="trex-game" class="section text-center" style="margin-top: 2rem;">
+  <h2>🦖 Trex Runner Game</h2>
+  <div id="trex-container" style="
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 2rem 0 1rem 0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+      width: 400px;
+      max-width: 98vw;">
+    <canvas id="trex-canvas" width="380" height="120" style="background: #fff; border-radius:8px; border:1px solid #e0e0e0;"></canvas>
+    <p style="margin-top:10px; color:#666; font-size:1rem;">Press SPACE or TAP to jump!</p>
+  </div>
+  <script>
+    // Trex Runner Game in pure JS
+    const canvas = document.getElementById('trex-canvas');
+    const ctx = canvas.getContext('2d');
+    let trex = { x: 40, y: 90, vy: 0, width: 30, height: 30, jumping: false };
+    let ground = 100;
+    let gravity = 0.7;
+    let obstacles = [];
+    let frame = 0;
+    let score = 0;
+    let gameOver = false;
 
+    function drawTrex() {
+      ctx.fillStyle = "#5c4037";
+      ctx.fillRect(trex.x, trex.y, trex.width, trex.height);
+      ctx.fillStyle = "#222";
+      ctx.fillRect(trex.x+20, trex.y+10, 7, 7); // head
+      ctx.fillStyle = "#fff";
+      ctx.fillRect(trex.x+25, trex.y+13, 2, 2); // eye
+    }
+    function drawObstacles() {
+      ctx.fillStyle = "#228B22";
+      obstacles.forEach(ob => ctx.fillRect(ob.x, ob.y, ob.width, ob.height));
+    }
+    function drawGround() {
+      ctx.strokeStyle = "#888";
+      ctx.beginPath();
+      ctx.moveTo(0, ground+trex.height);
+      ctx.lineTo(canvas.width, ground+trex.height);
+      ctx.stroke();
+    }
+    function resetGame() {
+      trex.y = ground;
+      trex.vy = 0;
+      trex.jumping = false;
+      obstacles = [];
+      frame = 0;
+      score = 0;
+      gameOver = false;
+    }
+    function gameLoop() {
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      drawGround();
+      drawTrex();
+      drawObstacles();
+      ctx.fillStyle = "#333";
+      ctx.font = "16px monospace";
+      ctx.fillText("Score: " + score, 10, 20);
+
+      if (gameOver) {
+        ctx.fillStyle = "#B22222";
+        ctx.font = "22px bold monospace";
+        ctx.fillText("Game Over!", 120, 60);
+        ctx.font = "14px monospace";
+        ctx.fillText("Press Space or Tap to Restart", 75, 90);
+        return;
+      }
+
+      // Trex physics
+      trex.y += trex.vy;
+      trex.vy += gravity;
+      if (trex.y > ground) {
+        trex.y = ground;
+        trex.vy = 0;
+        trex.jumping = false;
+      }
+
+      // Obstacles movement/logic
+      if (frame % 80 === 0) {
+        let height = 25 + Math.floor(Math.random() * 20);
+        obstacles.push({ x: canvas.width, y: ground + trex.height - height, width: 12 + Math.random()*20, height: height });
+      }
+      obstacles.forEach(ob => ob.x -= 5);
+
+      // Remove off-screen obstacles
+      obstacles = obstacles.filter(ob => ob.x + ob.width > 0);
+
+      // Collision detection
+      obstacles.forEach(ob => {
+        if (
+          trex.x < ob.x + ob.width &&
+          trex.x + trex.width > ob.x &&
+          trex.y + trex.height > ob.y
+        ) {
+          gameOver = true;
+        }
+      });
+
+      if (!gameOver) {
+        score++;
+        frame++;
+        requestAnimationFrame(gameLoop);
+      }
+    }
+    function jump() {
+      if (!trex.jumping && !gameOver) {
+        trex.vy = -11;
+        trex.jumping = true;
+      } else if (gameOver) {
+        resetGame();
+        requestAnimationFrame(gameLoop);
+      }
+    }
+    window.addEventListener('keydown', e => {
+      if (e.code === 'Space') jump();
+    });
+    canvas.addEventListener('touchstart', jump);
+    canvas.addEventListener('mousedown', jump);
+
+    resetGame();
+    requestAnimationFrame(gameLoop);
+  </script>
+</section>
 </body>
 </html>
 
