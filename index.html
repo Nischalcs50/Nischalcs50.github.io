@@ -476,13 +476,52 @@ button {
     let gameOver = false;
 
     function drawTrex() {
-      ctx.fillStyle = "#5c4037";
-      ctx.fillRect(trex.x, trex.y, trex.width, trex.height);
-      ctx.fillStyle = "#222";
-      ctx.fillRect(trex.x+20, trex.y+10, 7, 7); // head
-      ctx.fillStyle = "#fff";
-      ctx.fillRect(trex.x+25, trex.y+13, 2, 2); // eye
-    }
+  // Body
+  ctx.fillStyle = "#5c4037";
+  ctx.beginPath();
+  ctx.ellipse(trex.x + 12, trex.y + 20, 13, 18, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Tail
+  ctx.beginPath();
+  ctx.moveTo(trex.x, trex.y + 30);
+  ctx.lineTo(trex.x - 14, trex.y + 35);
+  ctx.lineTo(trex.x + 2, trex.y + 22);
+  ctx.closePath();
+  ctx.fill();
+
+  // Legs
+  ctx.fillRect(trex.x + 4, trex.y + 38, 6, 10);
+  ctx.fillRect(trex.x + 16, trex.y + 38, 6, 10);
+
+  // Head
+  ctx.beginPath();
+  ctx.ellipse(trex.x + 24, trex.y + 10, 11, 9, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Eye
+  ctx.fillStyle = "#fff";
+  ctx.beginPath();
+  ctx.arc(trex.x + 29, trex.y + 9, 2, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.fillStyle = "#111";
+  ctx.beginPath();
+  ctx.arc(trex.x + 30, trex.y + 9, 1, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Arms
+  ctx.strokeStyle = "#402d19";
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(trex.x + 15, trex.y + 26);
+  ctx.lineTo(trex.x + 22, trex.y + 31);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(trex.x + 13, trex.y + 28);
+  ctx.lineTo(trex.x + 19, trex.y + 35);
+  ctx.stroke();
+}
     function drawObstacles() {
       ctx.fillStyle = "#228B22";
       obstacles.forEach(ob => ctx.fillRect(ob.x, ob.y, ob.width, ob.height));
