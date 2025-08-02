@@ -477,22 +477,33 @@ button {
 <section id="photo" class="section text-center" style="background-color: white; padding: 20px;">
   <h2>🏞️ Gallery2</h2>
   <div class="d-flex justify-content-center">
-    <div style="width: 900px;height: 300px; padding: 10px;
-	    overflow: hidden; position: relative; 
-	    border: 1px solid #ccc; background-color: white;">
+    <div style="
+      width: 900px;
+      height: 300px;
+      padding: 10px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid #ccc;
+      background-color: white;
+      border-radius: 12px;       /* Rounded corners */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Soft shadow */
+      display: flex;
+      align-items: center;">
+      
       <div id="carousel-track" style="
         display: flex;
         transition: transform 0.6s ease-in-out;
         width: max-content;">
-        <img src="docs/plot1.png" style="width: 450px; height: 300px; object-fit: contain;" />
-        <img src="docs/plot2.jpg" style="width: 450px; height: 300px; object-fit: contain;" />
-        <img src="docs/storm.gif" style="width: 450px; height: 300px; object-fit: contain;" />
-        <img src="docs/plot3.jpg" style="width: 450px; height: 300px; object-fit: contain;" />
-        <img src="docs/plot4.jpg" style="width: 450px; height: 300px; object-fit: contain;" />
-        <img src="docs/plot5.jpg" style="width: 450px; height: 300px; object-fit: contain;" />
+        <img src="docs/plot1.png" style="width: 450px; height: 300px; object-fit: contain; border-radius: 8px;" />
+        <img src="docs/plot2.jpg" style="width: 450px; height: 300px; object-fit: contain; border-radius: 8px;" />
+        <img src="docs/storm.gif" style="width: 450px; height: 300px; object-fit: contain; border-radius: 8px;" />
+        <img src="docs/plot3.jpg" style="width: 450px; height: 300px; object-fit: contain; border-radius: 8px;" />
+        <img src="docs/plot4.jpg" style="width: 450px; height: 300px; object-fit: contain; border-radius: 8px;" />
+        <img src="docs/plot5.jpg" style="width: 450px; height: 300px; object-fit: contain; border-radius: 8px;" />
       </div>
     </div>
   </div>
+  
   <button onclick="nextSlide()" style="
     margin-top: 10px;
     padding: 6px 12px;
@@ -520,6 +531,7 @@ button {
     setInterval(nextSlide, 6000);
   </script>
 </section>
+
 
 <hr />
 <!-- Trex Runner Game Section -->
