@@ -473,6 +473,52 @@ button {
 	</script>
 </section>
 <hr/>
+
+<section id="photo" class="section text-center">
+  <h2>🏞️ Gallery2</h2>
+  <div class="d-flex justify-content-center">
+    <div style="width: 900px; overflow: hidden; position: relative; border: 1px solid #ccc;">
+      <div id="carousel-track" style="
+        display: flex;
+        transition: transform 0.6s ease-in-out;
+        width: max-content;">
+        <img src="docs/plot1.png" style="width: 450px; height: 300px; object-fit: contain;" />
+        <img src="docs/plot2.jpg" style="width: 450px; height: 300px; object-fit: contain;" />
+        <img src="docs/storm.gif" style="width: 450px; height: 300px; object-fit: contain;" />
+        <img src="docs/plot3.jpg" style="width: 450px; height: 300px; object-fit: contain;" />
+        <img src="docs/plot4.jpg" style="width: 450px; height: 300px; object-fit: contain;" />
+        <img src="docs/plot5.jpg" style="width: 450px; height: 300px; object-fit: contain;" />
+      </div>
+    </div>
+  </div>
+  <button onclick="nextSlide()" style="
+    margin-top: 5px;
+    padding: 6px 12px;
+    font-size: 14px;
+    background-color: #f2f2f2;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;">Next ▶️</button>
+
+  <script>
+    const track = document.getElementById('carousel-track');
+    const totalImages = track.children.length;
+    const visibleImages = 2;
+    let currentSlide = 0;
+
+    function nextSlide() {
+      currentSlide++;
+      if (currentSlide > totalImages - visibleImages) {
+        currentSlide = 0;
+      }
+      track.style.transform = `translateX(-${currentSlide * 450}px)`;
+    }
+
+    setInterval(nextSlide, 7000);
+  </script>
+</section>
+<hr />
 <!-- Trex Runner Game Section -->
 <section id="trex-game" class="section text-center" style="margin-top: 2rem;">
   <h2>Rat that pretends to be a 🦖T-REX | PLAY</h2>
