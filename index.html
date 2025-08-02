@@ -477,7 +477,9 @@ button {
 <section id="photo" class="section text-center" style="background-color: white; padding: 20px;">
   <h2>🏞️ Gallery2</h2>
   <div class="d-flex justify-content-center">
-    <div style="width: 900px; overflow: hidden; position: relative; border: 1px solid #ccc; background-color: white;">
+    <div style="width: 900px;height: 300px; padding: 10px;
+	    overflow: hidden; position: relative; 
+	    border: 1px solid #ccc; background-color: white;">
       <div id="carousel-track" style="
         display: flex;
         transition: transform 0.6s ease-in-out;
@@ -515,7 +517,7 @@ button {
       track.style.transform = `translateX(-${currentSlide * 450}px)`;
     }
 
-    setInterval(nextSlide, 7000);
+    setInterval(nextSlide, 6000);
   </script>
 </section>
 
