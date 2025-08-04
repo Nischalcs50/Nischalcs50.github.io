@@ -415,12 +415,12 @@ button {
     </section>
 
     <hr />
-  <section id="photo" class="section text-center" style="padding: 10px 0;">
-  <h2 style="color: white;">🏞️ Gallery</h2>
+  <section id="photo" style="padding: 10px 0;">
+  <h2>🏞️ Gallery</h2>
 
   <div style="
     width: 700px;
-    height: 300px;
+    height: 250px;
     margin: 0 auto;
     overflow: hidden;
     border-radius: 16px;
@@ -432,12 +432,12 @@ button {
       transition: transform 0.6s ease-in-out;
       width: max-content;
     ">
-      <img src="docs/plot1.png" style="width: 350px; height: 300px; object-fit: contain;" />
-      <img src="docs/plot2.jpg" style="width: 350px; height: 300px; object-fit: contain;" />
-      <img src="docs/storm.gif" style="width: 350px; height: 300px; object-fit: contain;" />
-      <img src="docs/plot3.jpg" style="width: 350px; height: 300px; object-fit: contain;" />
-      <img src="docs/plot4.jpg" style="width: 350px; height: 300px; object-fit: contain;" />
-      <img src="docs/plot5.jpg" style="width: 350px; height: 300px; object-fit: contain;" />
+      <img src="docs/plot1.png" style="width: 350px; height: 250px; object-fit: contain;" />
+      <img src="docs/plot2.jpg" style="width: 350px; height: 250px; object-fit: contain;" />
+      <img src="docs/storm.gif" style="width: 350px; height: 250px; object-fit: contain;" />
+      <img src="docs/plot3.jpg" style="width: 350px; height: 250px; object-fit: contain;" />
+      <img src="docs/plot4.jpg" style="width: 350px; height: 250px; object-fit: contain;" />
+      <img src="docs/plot5.jpg" style="width: 350px; height: 250px; object-fit: contain;" />
     </div>
   </div>
 
@@ -464,7 +464,7 @@ button {
       if (currentSlide > totalImages - visibleImages) {
         currentSlide = 0;
       }
-      track.style.transform = `translateX(-${currentSlide * 450}px)`;
+      track.style.transform = `translateX(-${currentSlide * 350}px)`;
     }
 
     setInterval(nextSlide, 6000);
