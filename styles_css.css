@@ -1,0 +1,167 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-size: 18px;         /* Increase base font size */
+  line-height: 1.6;        /* More vertical spacing between lines */
+  letter-spacing: 0.03em;  /* Slightly more space between letters */
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to bottom, #ffffff, #d0f0fd, #98d2ad);
+  color: #222;
+  overflow-x: hidden;
+}
+
+p, h1, h2, h3, h4, h5, h6, div, span, li {
+  color: #111;
+}
+blockquote {
+font-style: italic;
+color: #333; /* dark gray text */
+font-size: 1.5rem; /* larger font */
+border-left: 4px solid #ccc;
+padding-left: 1rem;
+margin: 1rem;
+float: right;
+width: 40%;
+}
+a {
+  color: #003366;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.floating-object {
+position: absolute;
+bottom: -150px; /* Appear from further down */
+width: 40px;
+height: 40px;
+background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.7), rgba(0, 255, 255, 0.3));
+border-radius: 50%;
+animation: float 16s infinite ease-in-out;
+z-index: 0;
+box-shadow: inset -2px -2px 8px rgba(255, 255, 255, 0.5),
+            inset 2px 2px 6px rgba(0, 0, 0, 0.05);
+backdrop-filter: blur(1px);
+pointer-events: none;
+}
+@keyframes float {
+0%   { transform: translateY(100vh) translateX(0); opacity: 0; }
+10%  { opacity: 1; } /* Fade in quickly at the bottom */
+90%  { opacity: 1; } /* Stay fully visible most of the way up */
+100% { transform: translateY(-100vh) translateX(50px); opacity: 0; } /* Fade out at the very top */
+}
+    .floating-object:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .floating-object:nth-child(2) { left: 30%; animation-delay: 2s; width: 30px; height: 30px; }
+    .floating-object:nth-child(3) { left: 40%; animation-delay: 3s; width: 30px; height: 30px; }
+    .floating-object:nth-child(4) { left: 50%; animation-delay: 5s; width: 50px; height: 50px; }
+    .floating-object:nth-child(5) { left: 70%; animation-delay: 8s; width: 20px; height: 20px; }
+    .floating-object:nth-child(6) { left: 90%; animation-delay: 11s; width: 60px; height: 60px; }
+    .floating-object:nth-child(7) { left: 90%; animation-delay: 12s; width: 60px; height: 60px; }
+	
+.floating-object.trail1 {
+  opacity: 0.5;
+  filter: blur(2px);
+  animation-delay: 0.3s;
+}
+
+.floating-object.trail2 {
+  opacity: 0.3;
+  filter: blur(4px);
+  animation-delay: 0.6s;
+}
+
+.floating-object.trail3 {
+  opacity: 0.15;
+  filter: blur(6px);
+  animation-delay: 0.9s;
+}
+.sidebar {
+position: fixed;
+top: 80px;
+left: 10px;
+width: 200px;
+z-index: 10;
+background-color: white; /* This makes it white */
+padding: 1rem;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Optional for depth */
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sidebar li {
+  margin-bottom: 1rem;
+}
+
+.content-wrapper {
+  margin-left: 220px;
+  padding: 1rem 1rem;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+  .content-wrapper {
+    margin-left: 0;
+  }
+}
+
+#slideshow-container {
+text-align: center;
+padding: 2rem;
+background-color: rgba(255, 255, 255, 0.1); /* light translucent background */
+border-radius: 10px;
+}
+
+#slideshow-image {
+max-width: 90%;
+height: auto;
+border-radius: 8px;
+box-shadow: 0 0 10px #ccc;
+margin-bottom: 1rem;
+}
+
+button {
+padding: 0.6rem 1.2rem;
+font-size: 1rem;
+background-color: #2d89ef;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+ }
+.research-card {
+  background: #f9f9f9;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: max-height 0.3s ease;
+}
+.research-card:hover {
+  background: #f0f0ff;
+}
+.research-title {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+.research-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: 
+  max-height 0.4s ease,
+  opacity 0.3s ease,
+  transform 0.3s ease;
+  transform-origin:
