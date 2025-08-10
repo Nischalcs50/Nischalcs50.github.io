@@ -27,7 +27,7 @@
       overflow-x:hidden;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
-      background: linear-gradient(to bottom, #87d4f5ff, #95b9efff, #6eabf7ff, #6295e1ff);
+      background: linear-gradient(to bottom, #87d4f5ff, rgb(145, 244, 237), rgb(79, 169, 192), rgb(52, 155, 141));
     }
 
     /* subtle vignette so cards pop more */
@@ -221,14 +221,26 @@ button {
   gap: 1rem;
  }
 .research-card {
-  background: #f9f9f9;
-  border-radius: 1rem;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  cursor: pointer;
-  transition: max-height 0.3s ease;
+  background: #fbf6df;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  margin: 1rem 0.5rem;
+  box-shadow: 0 4px 8px rgba(247, 190, 2, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: default;
+  will-change: transform;
 }
+.research-card.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.research-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+}
+
 .research-card:hover {
   background: #f0f0ff;
 }
@@ -246,6 +258,7 @@ button {
   transform-origin: top;
   will-change: max-height, opacity, transform;
 }
+
 .research-card.active .research-content {
   max-height: 500px;
   opacity: 1;
@@ -475,7 +488,7 @@ button {
 	  </div>
 	
 	  
-	  <div class="research-card">
+	  <div class="research-card" >
 	    <div class="research-title">🧘 Non-dualistic Vedanta (Advaita)...</div>
 	    <div class="research-content">
 	      Investigating "Who is the Seer and what is actually Seen?" through personal experiments
@@ -758,6 +771,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   cards.forEach(card => observer.observe(card));
 });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll('.research-card');
+  cards.forEach(card => card.classList.add('hidden')); // start hidden
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        entry.target.classList.remove('hidden');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  cards.forEach(card => observer.observe(card));
+});
+
 </script>
 
 </body>
