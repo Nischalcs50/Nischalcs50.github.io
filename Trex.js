@@ -1,28 +1,3 @@
-// Research cards functionality
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.research-card').forEach(card => {
-    card.addEventListener('click', () => {
-      card.classList.toggle('active');
-    });
-  });
-});
-
-// Photo Gallery Carousel functionality
-const track = document.getElementById('carousel-track');
-const totalImages = track.children.length;
-const visibleImages = 2;
-let currentSlide = 0;
-
-function nextSlide() {
-  currentSlide++;
-  if (currentSlide > totalImages - visibleImages) {
-    currentSlide = 0;
-  }
-  track.style.transform = `translateX(-${currentSlide * 350}px)`;
-}
-
-setInterval(nextSlide, 6000);
-
 // Trex Runner Game in pure JS
 const canvas = document.getElementById('trex-canvas');
 const ctx = canvas.getContext('2d');

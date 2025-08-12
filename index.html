@@ -5,268 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NISCHAL KAFLE</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    :root{
-      --card-width: 900px;
-      --card-radius: 14px;
-      --card-shadow: 0 12px 40px rgba(6,24,63,0.18);
-      --accent: #2d89ef;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-    
-    body{
-      font-size: 18px;         /* Increase base font size */
-      line-height: 1.6;        /* More vertical spacing between lines */
-      letter-spacing: 0.03em;  /* Slightly more space between letters */
-      font-family: 'Roboto', sans-serif;
-      height:100%;
-      margin:0;
-      color: #222;
-      overflow-x:hidden;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      background: linear-gradient(to bottom, #87d4f5ff, rgb(145, 244, 237), rgb(79, 169, 192), rgb(52, 155, 141));
-    }
-
-    /* subtle vignette so cards pop more */
-    .vignette {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: -1;
-      background: radial-gradient(ellipse at center, rgba(0,0,0,0) 40%, rgba(0,0,0,0.06) 100%);
-    }
-
-    .card {
-      width: min(85%, var(--card-width));
-      border-radius: var(--card-radius);
-      padding: 1.6rem 2rem;
-      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,250,252,0.98));
-      box-shadow: var(--card-shadow);
-      transform-origin: center center;
-      transition: transform 0.9s cubic-bezier(.2,.9,.2,1), box-shadow 0.3s ease, opacity 0.5s ease;
-      will-change: transform, opacity;
-      border: 1px solid rgba(10,20,40,0.04);
-      overflow: hidden;
-    }
-
-    .card h1 { margin-top: 0; font-size: clamp(1.4rem, 2.4vw, 2rem); }
-    .card p, .card li { font-size: 1.2rem; line-height:1.6; color:#111; }
-
-    /* small helper to shrink card slightly when off-focus */
-    .card.off-focus {
-      transform: scale(0.92) translateY(10px);
-      opacity:0.85;
-      box-shadow: 0 8px 24px rgba(6,24,63,0.08);
-    }
-
-    .card {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-
-    .card.visible {
-    opacity: 1;
-    transform: translateY(0);
-    }
-
-	  
-    p, h1, h2, h3, h4, h5, h6, div, span, li {
-      color: #111;
-    }
-    blockquote {
-	  font-style: italic;
-	  color: #333; /* dark gray text */
-	  font-size: 1.2rem; /* larger font */
-	  border-left: 1px solid #ccc;
-	  padding-left: 1rem;
-	  margin: 1rem;
-	  float: right;
-	  width: 50%;
-}
-    a {
-      color: #003366;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .floating-object {
-	  position: absolute;
-	  bottom: -150px; /* Appear from further down */
-	  width: 40px;
-	  height: 40px;
-	  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.7), rgba(0, 255, 255, 0.3));
-	  border-radius: 50%;
-	  animation: float 16s infinite ease-in-out;
-	  z-index: 0;
-	  box-shadow: inset -2px -2px 8px rgba(255, 255, 255, 0.5),
-	              inset 2px 2px 6px rgba(0, 0, 0, 0.05);
-	  backdrop-filter: blur(1px);
-	  pointer-events: none;
-	}
-    @keyframes float {
-	  0%   { transform: translateY(100vh) translateX(0); opacity: 0; }
-	  10%  { opacity: 1; } /* Fade in quickly at the bottom */
-	  90%  { opacity: 1; } /* Stay fully visible most of the way up */
-	  100% { transform: translateY(-100vh) translateX(50px); opacity: 0; } /* Fade out at the very top */
-	}
-	    .floating-object:nth-child(1) { left: 10%; animation-delay: 0s; }
-	    .floating-object:nth-child(2) { left: 30%; animation-delay: 2s; width: 30px; height: 30px; }
-	    .floating-object:nth-child(3) { left: 40%; animation-delay: 3s; width: 30px; height: 30px; }
-	    .floating-object:nth-child(4) { left: 50%; animation-delay: 5s; width: 50px; height: 50px; }
-	    .floating-object:nth-child(5) { left: 70%; animation-delay: 8s; width: 20px; height: 20px; }
-	    .floating-object:nth-child(6) { left: 90%; animation-delay: 11s; width: 60px; height: 60px; }
-	    .floating-object:nth-child(7) { left: 90%; animation-delay: 12s; width: 60px; height: 60px; }
-		
-	.floating-object.trail1 {
-	  opacity: 0.5;
-	  filter: blur(2px);
-	  animation-delay: 0.3s;
-	}
-	
-	.floating-object.trail2 {
-	  opacity: 0.3;
-	  filter: blur(4px);
-	  animation-delay: 0.6s;
-	}
-	
-	.floating-object.trail3 {
-	  opacity: 0.15;
-	  filter: blur(6px);
-	  animation-delay: 0.9s;
-	}
-    .sidebar {
-	  position: fixed;
-	  top: 80px;
-	  left: 10px;
-	  width: 200px;
-	  z-index: 10;
-	  background-color: white; /* This makes it white */
-	  padding: 1rem;
-	  border-radius: 8px;
-	  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Optional for depth */
-	}
-
-    .sidebar ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .sidebar li {
-      margin-bottom: 1rem;
-    }
-
-    .content-wrapper {
-      margin-left: 220px;
-      padding: 1rem 1rem;
-    }
-
-    @media (max-width: 768px) {
-      .sidebar {
-        display: none;
-      }
-      .content-wrapper {
-        margin-left: 0;
-      }
-    }
-
-    @media (max-width: 768px) {
-    .flex-container {
-      flex-direction: column;
-    }
-    /* Optional: Adjust widths for small screens */
-    .flex-container > section {
-      max-width: 100% !important;
-      flex-basis: 100% !important;
-    }
-    /* Optional: center the content on small screens */
-    .flex-container {
-      align-items: center;
-    }
-  }
-
-
-#slideshow-container {
-  text-align: center;
-  padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.1); /* light translucent background */
-  border-radius: 10px;
-}
-
-#slideshow-image {
-  max-width: 90%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 0 10px #ccc;
-  margin-bottom: 1rem;
-}
-
-button {
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
-  background-color: #2d89ef;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.research-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
- }
-.research-card {
-  background: #fbf6df;
-  border-radius: 12px;
-  padding: 1rem 1.2rem;
-  margin: 1rem 0.5rem;
-  box-shadow: 0 4px 8px rgba(247, 190, 2, 0.1);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  cursor: default;
-  will-change: transform;
-}
-.research-card.hidden {
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.research-card.visible {
-  opacity: 1;
-  transform: translateY(0);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.15);
-}
-
-.research-card:hover {
-  background: #f0f0ff;
-}
-.research-title {
-  font-weight: bold;
-  font-size: 1.1em;
-}
-.research-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: 
-  max-height 0.4s ease,
-  opacity 0.3s ease,
-  transform 0.3s ease;
-  transform-origin: top;
-  will-change: max-height, opacity, transform;
-}
-
-.research-card.active .research-content {
-  max-height: 500px;
-  opacity: 1;
-  transform: scaleY(1);
-  margin-top: 0.5rem;
-}
-
-  </style>
+  <link rel="stylesheet" href="ripple.css">
+  <link rel="stylesheet" href="styles_css.css">
 </head>
 <body>
   <div class="floating-object" style="left:10%; animation-delay:0s;"></div>
@@ -285,28 +25,27 @@ button {
   <div class="floating-object"></div>
 
   <!-- Sidebar Navigation -->
-  <nav class="sidebar">
+  <nav class="topnav">
     <ul>
       <li><a href="#about">About Me</a></li>
       <li><a href="#photo">Photo Gallery</a></li>
-      <li><a href="#research">Research</a></li>
       <li><a href="#awards">Recognitions</a></li>
+      <li><a href="#impacts">Impacts</a></li>
+      <li><a href="#research">Research</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#cv">CV</a></li>
       <li><a href="#references">References</a></li>
-      
-	    
-    </ul>
+     </ul>
   </nav>
 
   <!-- Main Content -->
   <div class="content-wrapper position-relative" style="z-index: 1;">
-    <header   class="mb-2"  style="margin-top:0; padding-top:0.5rem; display:flex; justify-content:center; align-items:center; text-align:center;">
+    <header   class="mb-2"  style="margin-top: 40px; padding-top:0.5rem; display:flex; justify-content:center; align-items:center; text-align:center;">
         <div class="card" data-depth="0" style="max-width:800px; width:100%;">
             <h1>NISCHAL KAFLE</h1>
               <p>👨‍🎓 Ph.D. Candidate | 🌧️ Hydrologist | 🧠 Extreme Value Analyst | 🐍 Pythonista</p>
-              <p><img src="docs/uofm-logo.png" alt="University of Memphis logo" style="height:50px; vertical-align:middle; margin-left:8px;">
-                 <strong>University of Memphis</strong>  <br> From the high mountains of <strong>Nepal 🇳🇵</strong></p>
+              <p><img src="docs/uofm-logo.png" alt="University of Memphis logo" style="height:30px; vertical-align:middle; margin-left:8px;">
+                 <strong>University of Memphis</strong>  | From the high mountains of <strong>Nepal 🇳🇵</strong></p>
               <p>
                 📫 <a href="mailto:nkafle@memphis.edu">nkafle@memphis.edu</a> |
                 <a href="mailto:nkafle.29@gmail.com">nkafle.29@gmail.com</a>
@@ -334,20 +73,19 @@ button {
   flex-wrap: nowrap; 
   max-width: 1400px; 
   margin: 0 auto;
-  gap: 1rem;">
-    <section id="about" class="section" style="flex: 1 1 725px; max-width: 725px;">
+  gap: 0.5rem;">
+    <section id="about" class="section" style="flex: 1 1 600px; max-width: 600px;">
       <div class="card" data-depth="1" style="width: 100%;">
           <h2>About Me</h2>
               <p>I am a Ph.D. candidate in Civil Engineering at the University of Memphis, specializing in 
                 <strong>stochastic hydrology</strong>, <strong>meteorology</strong>, and <strong>engineering designs</strong>. 
-                My PhD research aims to enhance the understanding and modeling of extreme rainfall, particularly short-duration for 
-                <strong>urban infrastructure design</strong>, <strong>climate resilience</strong> and 
-                <strong>flood risk management</strong>.</p>
+                My research improves modeling of short-duration extreme rainfall for urban
+                infrastructure design, climate resilience, and flood risk management.</p>
               <p><strong>Advisor:</strong> <a href="https://www.memphis.edu/ce/people/cimeier.php" target="_blank">Dr. Claudio Meier</a></p>
 
           <div style="overflow: auto; padding: 1rem; border-radius: 10px;
-                  width: 600px;
-                  height: 200px;
+                  width: 550px;
+                  height: 180px;
                   margin: 0 auto;
                   overflow: hidden;
                   border-radius: 16px;
@@ -363,12 +101,12 @@ button {
         </div>
 	  </section>
 
-    <section id="photo" style="flex: 1 1 725px; max-width: 725px; padding: 0px 0;">
+    <section id="photo" style="flex: 1 1 750px; max-width: 750px; padding: 0px 0;">
       <div class="card" data-depth="1" style="width: 100%; height: 100%">
       <h2>🏞️ Gallery</h2>
 
-              <div style="
-            width: 680px;
+        <div style="
+            width: 700px;
             height: 250px;
             margin: 0 auto;
             overflow: hidden;
@@ -381,17 +119,17 @@ button {
               transition: transform 0.6s ease-in-out;
               width: max-content;
             ">
-              <img src="docs/plot1.png" style="width: 340px; height: 250px; object-fit: contain;" />
-              <img src="docs/plot2.jpg" style="width: 340px; height: 250px; object-fit: contain;" />
-              <img src="docs/storm.gif" style="width: 340px; height: 250px; object-fit: contain;" />
-              <img src="docs/plot3.jpg" style="width: 340px; height: 250px; object-fit: contain;" />
-              <img src="docs/plot4.jpg" style="width: 340px; height: 250px; object-fit: contain;" />
-              <img src="docs/plot5.jpg" style="width: 340px; height: 250px; object-fit: contain;" />
-              <img src="docs/uofm.jpeg" style="width: 340px; height: 250px; object-fit: contain;" />
-              <img src="docs/world.JPG" style="width: 340px; height: 250px; object-fit: contain;" />
-              <img src="docs/nheri.JPG" style="width: 340px; height: 250px; object-fit: contain;" />
-              <img src="docs/agu.JPG" style="width: 340px; height: 250px; object-fit: contain;" />
-              <img src="docs/IMG_4780.JPG" style="width: 340px; height: 250px; object-fit: contain;" />
+              <img src="docs/plot1.png" style="width: 350px; height: 250px; object-fit: contain;" />
+              <img src="docs/plot2.jpg" style="width: 350px; height: 250px; object-fit: contain;" />
+              <img src="docs/storm.gif" style="width: 350px; height: 250px; object-fit: contain;" />
+              <img src="docs/plot3.jpg" style="width: 350px; height: 250px; object-fit: contain;" />
+              <img src="docs/plot4.jpg" style="width: 350px; height: 250px; object-fit: contain;" />
+              <img src="docs/plot5.jpg" style="width: 350px; height: 250px; object-fit: contain;" />
+              <img src="docs/uofm.jpeg" style="width: 350px; height: 250px; object-fit: contain;" />
+              <img src="docs/world.JPG" style="width: 350px; height: 250px; object-fit: contain;" />
+              <img src="docs/nheri.JPG" style="width: 350px; height: 250px; object-fit: contain;" />
+              <img src="docs/agu.JPG" style="width: 350px; height: 250px; object-fit: contain;" />
+              <img src="docs/IMG_4780.JPG" style="width: 350px; height: 250px; object-fit: contain;" />
             </div>
           </div>
         <div style="text-align: center;">
@@ -400,19 +138,80 @@ button {
             padding: 8px 16px;
             font-size: 14px;
             background-color: #ffffff;
-            color: #001f3f;
+            color: #060800;
             border: none;
             border-radius: 6px;
             cursor: pointer;
             font-weight: bold;
           ">Next ▶️</button></div>
         </div>
-    </section> </div>
+    </section></div>
 
-    <hr />
+    <hr>
+    <section id="awards" class="section" style="display: flex; justify-content: center; padding: 1rem 0;" >
+    <div class="card" data-depth="2" style="max-width:1050px; width:100%;">
+	  <h2 >🏆 Recognitions & Awards</h2>
+	  <ul style="line-height: 1.8; list-style-type: '🌟 '; padding-left: 1em;">
+	    <li><strong>World-Class Achiever</strong> — Honored by the Division of International Affairs, University of Memphis</li>
+	    <li><strong>$5000 Dissertation Completion Grant</strong> — Awarded for Summer 2025 by the Graduate School</li>
+	    <li><strong>Graduate Assistantship</strong> — Department of Civil Engineering, University of Memphis (Aug 2021 – Present)</li>
+	    <li><strong>Excellence in Engineering</strong> — Appreciation Award from the Department of Irrigation, Nepal (2018)</li>
+	    <li><strong>Leadership in Public Service</strong> — Recognition for conflict resolution as an Election Officer, Sindhupalchowk DAO (2018)</li>
+	    <li><strong>Full Merit-Based Scholarship</strong> — Secured Rank 26 in national IOE entrance exam among 10,000+ applicants (2010)</li>
+	  </ul></div>
+	</section>
 
+  <section id="impacts" class="section" style="display: flex; justify-content: center; padding: 1rem 0;">
+      <div class="impact-content">
+        <h3 style="color: #000305; text-align: center; margin-bottom: 1rem; font-size: 1.8rem;">
+          🌍 Real World Impacts: From Nepal to Memphis
+        </h3>
+        
+        <div class="impact-stats">
+          <div class="impact-stat">5,00+ Lives Protected</div>
+          <div class="impact-stat">150+ Infrastructure Projects</div>
+          <div class="impact-stat">60+ US Residents Trained</div>
+          <div class="impact-stat">500+ Nepalese Residents Trained</div>
+          <div class="impact-stat">40+ Students Instructed</div>
+          <div class="impact-stat">1+ Open-source Project<span class="project-details">
+                          Including <a href="https://github.com/Nischalcs50/nsEVDx" target="_blank">nsEVDx</a>
+                        </span></div>
+          <div class="impact-stat">President: Nepalese Student Society @uofm 
+            <img src="docs/uofm-logo.png" 
+            alt="University of Memphis logo" 
+            style="height:30px; vertical-align:middle; margin-left:8px;"><br>5+ Events organized</div>
+            <div class="impact-stat">10+ International Conferences Presented At </div>
+        </div>
+
+        <div class="impact-grid">
+          <div class="impact-item">
+            <h4>🏙️ Memphis Flood Modeling</h4>
+            <p>
+              Led comprehensive flood modeling for underserved South Memphis communities using PCSWMM.
+              Created critical flood maps and animations that directly informed city planning decisions.
+            </p>
+            <div class="impact-quote">
+              "This isn't just academic research - it's about protecting real families in real neighborhoods."
+            </div>
+          </div>
+          
+          <div class="impact-item">
+            <h4>🌍 International Infrastructure</h4>
+            <p>
+              As a Gazetted Officer in Nepal, managed technical operations for 150+ irrigation and
+              disaster mitigation projects, collaborating with World Bank and ADB.
+            </p>
+            <div class="impact-highlight">
+              From Himalayan villages to American cities - water connects us all.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  <hr>
     <section id="research" class="section">
-	  <h2>🧪 Current Research Areas & Highlights <span style="font-size: 0.8em;">(Click to Expand)</span></h2>
+	  <h1 style="color:white;">🧪 Current Research Areas & Highlights <span style="color:white; font-size: 0.8em;">(Click to Expand)</span></h2>
 
 	<div class="research-grid">
 	  <div class="research-card">
@@ -498,23 +297,7 @@ button {
 	</div>
 	</section>
 
-
-	  <hr />
-
-    <section id="awards" class="section" style="display: flex; justify-content: center; padding: 1rem 0;" >
-    <div class="card" data-depth="3" style="max-width:1050px; width:100%;">
-	  <h2 >🏆 Recognitions & Awards</h2>
-	  <ul style="line-height: 1.8; list-style-type: '🌟 '; padding-left: 1em;">
-	    <li><strong>World-Class Achiever</strong> — Honored by the Division of International Affairs, University of Memphis</li>
-	    <li><strong>$5000 Dissertation Completion Grant</strong> — Awarded for Summer 2025 by the Graduate School</li>
-	    <li><strong>Graduate Assistantship</strong> — Department of Civil Engineering, University of Memphis (Aug 2021 – Present)</li>
-	    <li><strong>Excellence in Engineering</strong> — Appreciation Award from the Department of Irrigation, Nepal (2018)</li>
-	    <li><strong>Leadership in Public Service</strong> — Recognition for conflict resolution as an Election Officer, Sindhupalchowk DAO (2018)</li>
-	    <li><strong>Full Merit-Based Scholarship</strong> — Secured Rank 26 in national IOE entrance exam among 10,000+ applicants (2010)</li>
-	  </ul></div>
-	</section>
-
-    <hr />
+	  <hr>
 
     <section id="experience" class="section" style="display: flex; justify-content: center; padding: 1rem 0;">
       <div class="card" data-depth="4" style="max-width:1050px; width:100%;">
@@ -552,14 +335,13 @@ button {
     <section id="references" class="section" style="display: flex; justify-content: center; padding: 1rem 0;">
       <div class="card" data-depth="4" style="max-width:500px; width:100%;">
       <h2>📚 References</h2>
-      ..
+      ...
     </div></section>
 
-    
 <hr />
 <!-- Trex Runner Game Section -->
 <section id="trex-game" class="section text-center" style="margin-top: 2rem;">
-  <h2>Need a break ? Play my 🦖T-REX game</h2>
+  <h2 style="color:white;">Need a break ? Play my 🦖T-REX game</h2>
   <div id="trex-container" style="
       display: flex;
       flex-direction: column;
@@ -577,220 +359,10 @@ button {
   </div>
 </section>
 
-<script>
-// Research cards functionality
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.research-card').forEach(card => {
-    card.addEventListener('click', () => {
-      card.classList.toggle('active');
-    });
-  });
-});
-
-// Photo Gallery Carousel functionality
-const track = document.getElementById('carousel-track');
-const totalImages = track.children.length;
-const visibleImages = 2;
-let currentSlide = 0;
-
-function nextSlide() {
-  currentSlide++;
-  if (currentSlide > totalImages - visibleImages) {
-    currentSlide = 0;
-  }
-  track.style.transform = `translateX(-${currentSlide * 350}px)`;
-}
-
-setInterval(nextSlide, 6000);
-
-// Trex Runner Game in pure JS
-const canvas = document.getElementById('trex-canvas');
-const ctx = canvas.getContext('2d');
-let trex = { x: 40, y: 90, vy: 0, width: 30, height: 30, jumping: false };
-let ground = 100;
-let gravity = 0.7;
-let obstacles = [];
-let frame = 0;
-let score = 0;
-let gameOver = false;
-
-function drawTrex() {
-// Body
-ctx.fillStyle = "#5c4037";
-ctx.beginPath();
-ctx.ellipse(trex.x + 12, trex.y + 20, 13, 18, 0, 0, Math.PI * 2);
-ctx.fill();
-
-// Tail
-ctx.beginPath();
-ctx.moveTo(trex.x, trex.y + 30);
-ctx.lineTo(trex.x - 14, trex.y + 35);
-ctx.lineTo(trex.x + 2, trex.y + 22);
-ctx.closePath();
-ctx.fill();
-
-// Legs
-ctx.fillRect(trex.x + 4, trex.y + 38, 6, 10);
-ctx.fillRect(trex.x + 16, trex.y + 38, 6, 10);
-
-// Head
-ctx.beginPath();
-ctx.ellipse(trex.x + 24, trex.y + 10, 11, 9, 0, 0, Math.PI * 2);
-ctx.fill();
-
-// Eye
-ctx.fillStyle = "#fff";
-ctx.beginPath();
-ctx.arc(trex.x + 29, trex.y + 9, 2, 0, Math.PI * 2);
-ctx.fill();
-
-ctx.fillStyle = "#111";
-ctx.beginPath();
-ctx.arc(trex.x + 30, trex.y + 9, 1, 0, Math.PI * 2);
-ctx.fill();
-
-// Arms
-ctx.strokeStyle = "#402d19";
-ctx.lineWidth = 2;
-ctx.beginPath();
-ctx.moveTo(trex.x + 15, trex.y + 26);
-ctx.lineTo(trex.x + 22, trex.y + 31);
-ctx.stroke();
-ctx.beginPath();
-ctx.moveTo(trex.x + 13, trex.y + 28);
-ctx.lineTo(trex.x + 19, trex.y + 35);
-ctx.stroke();
-}
-function drawObstacles() {
-  ctx.fillStyle = "#228B22";
-  obstacles.forEach(ob => ctx.fillRect(ob.x, ob.y, ob.width, ob.height));
-}
-function drawGround() {
-  ctx.strokeStyle = "#888";
-  ctx.beginPath();
-  ctx.moveTo(0, ground+trex.height);
-  ctx.lineTo(canvas.width, ground+trex.height);
-  ctx.stroke();
-}
-function resetGame() {
-  trex.y = ground;
-  trex.vy = 0;
-  trex.jumping = false;
-  obstacles = [];
-  frame = 0;
-  score = 0;
-  gameOver = false;
-}
-function gameLoop() {
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  drawGround();
-  drawTrex();
-  drawObstacles();
-  ctx.fillStyle = "#333";
-  ctx.font = "16px monospace";
-  ctx.fillText("Score: " + score, 10, 20);
-
-  if (gameOver) {
-    ctx.fillStyle = "#B22222";
-    ctx.font = "22px bold monospace";
-    ctx.fillText("Game Over!", 120, 60);
-    ctx.font = "14px monospace";
-    ctx.fillText("Press Space or Tap to Restart", 75, 90);
-    return;
-  }
-
-  // Trex physics
-  trex.y += trex.vy;
-  trex.vy += gravity;
-  if (trex.y > ground) {
-    trex.y = ground;
-    trex.vy = 0;
-    trex.jumping = false;
-  }
-
-  // Obstacles movement/logic
-  if (frame % 80 === 0) {
-    let height = 25 + Math.floor(Math.random() * 20);
-    obstacles.push({ x: canvas.width, y: ground + trex.height - height, width: 12 + Math.random()*20, height: height });
-  }
-  obstacles.forEach(ob => ob.x -= 5);
-
-  // Remove off-screen obstacles
-  obstacles = obstacles.filter(ob => ob.x + ob.width > 0);
-
-  // Collision detection
-  obstacles.forEach(ob => {
-    if (
-      trex.x < ob.x + ob.width &&
-      trex.x + trex.width > ob.x &&
-      trex.y + trex.height > ob.y
-    ) {
-      gameOver = true;
-    }
-  });
-
-  if (!gameOver) {
-    score++;
-    frame++;
-    requestAnimationFrame(gameLoop);
-  }
-}
-function jump() {
-  if (!trex.jumping && !gameOver) {
-    trex.vy = -11;
-    trex.jumping = true;
-  } else if (gameOver) {
-    resetGame();
-    requestAnimationFrame(gameLoop);
-  }
-}
-window.addEventListener('keydown', e => {
-  if (e.code === 'Space') jump();
-});
-canvas.addEventListener('touchstart', jump);
-canvas.addEventListener('mousedown', jump);
-
-resetGame();
-requestAnimationFrame(gameLoop);
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const cards = document.querySelectorAll('.card');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target); // Animate once only
-      }
-    });
-  }, {
-    threshold: 0.1 // Trigger when 10% of card is visible
-  });
-
-  cards.forEach(card => observer.observe(card));
-});
-</script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll('.research-card');
-  cards.forEach(card => card.classList.add('hidden')); // start hidden
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        entry.target.classList.remove('hidden');
-      }
-    });
-  }, { threshold: 0.15 });
-
-  cards.forEach(card => observer.observe(card));
-});
-
-</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+<script src="main_js.js"></script>
+<script src="Trex.js"></script>
 
 </body>
 </html>
