@@ -294,9 +294,10 @@ margin-top: 0.5rem;
 }
 
 .impact-quote {
+  font-weight: bold;
   font-style: italic;
   color: #d63a3a;
-  font-size: 0.95rem;
+  font-size: 1rem;
   border-left: 3px solid #667eea;
   padding-left: 1rem;
   margin-top: 1rem;
@@ -305,7 +306,7 @@ margin-top: 0.5rem;
 .impact-highlight {
   font-weight: bold;
   color: var(--accent);
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 @media (max-width: 768px) {
