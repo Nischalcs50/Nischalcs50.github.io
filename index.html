@@ -3,396 +3,969 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NISCHAL KAFLE - Water Resources Engineer & Researcher</title>
-  <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">-->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="ripple.css">
-  <link rel="stylesheet" href="styles_css.css">
+  <title>Nischal Kafle — Water Resources Engineer & Researcher</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <!-- AOS (Animate on Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── DESIGN TOKENS ─────────────────────────────────────────── */
+    :root {
+      --navy:    #0a1628;
+      --deep:    #0d2137;
+      --teal:    #0ea5e9;
+      --cyan:    #22d3ee;
+      --emerald: #10b981;
+      --muted:   #94a3b8;
+      --light:   #e2e8f0;
+      --white:   #f8fafc;
+      --glass:   rgba(255,255,255,0.05);
+      --glass2:  rgba(255,255,255,0.09);
+      --border:  rgba(255,255,255,0.08);
+      --shadow:  0 24px 60px rgba(0,0,0,0.4);
+      --radius:  18px;
+      --ff-display: 'Playfair Display', Georgia, serif;
+      --ff-body:    'DM Sans', sans-serif;
+      --ff-mono:    'JetBrains Mono', monospace;
+    }
+
+    /* ─── RESET / BASE ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--ff-body);
+      background: var(--navy);
+      color: var(--light);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+    ::selection { background: var(--teal); color: var(--navy); }
+
+    /* ─── ANIMATED BACKGROUND ───────────────────────────────────── */
+    #bg-canvas {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    }
+
+    /* ─── NAVBAR ────────────────────────────────────────────────── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(10, 22, 40, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 2rem;
+      transition: all 0.3s ease;
+    }
+    #navbar .brand {
+      font-family: var(--ff-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+    #navbar .brand span { color: var(--teal); }
+    .nav-links { display: flex; gap: 0.25rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.75rem;
+      border-radius: 8px;
+      transition: all 0.25s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--teal); background: rgba(14, 165, 233, 0.1);
+    }
+    .hamburger { display: none; background: none; border: none; color: var(--white); font-size: 1.4rem; cursor: pointer; }
+    @media (max-width: 900px) {
+      .hamburger { display: block; }
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; background: rgba(10,22,40,0.97); padding: 1rem;
+        border-bottom: 1px solid var(--border); }
+      .nav-links.open { display: flex; }
+    }
+
+    /* ─── HERO ──────────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; z-index: 1;
+      padding: 6rem 1.5rem 4rem;
+      text-align: center;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(14,165,233,0.12); border: 1px solid rgba(14,165,233,0.3);
+      color: var(--teal); font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.35rem 1rem; border-radius: 50px; margin-bottom: 1.5rem;
+      animation: fadeInDown 0.8s ease forwards;
+    }
+    .hero-tag::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--teal); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+    @keyframes fadeInDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeInUp   { from{opacity:0;transform:translateY(30px)}  to{opacity:1;transform:translateY(0)} }
+
+    .hero-name {
+      font-family: var(--ff-display);
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 900;
+      line-height: 1.05;
+      background: linear-gradient(135deg, #fff 30%, var(--teal) 70%, var(--cyan) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 0.5rem;
+      animation: fadeInUp 1s 0.2s ease both;
+    }
+    .hero-title {
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      color: var(--muted); font-weight: 400; margin-bottom: 1.5rem;
+      animation: fadeInUp 1s 0.4s ease both;
+    }
+    .hero-title strong { color: var(--light); }
+    .hero-chips {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 0.6rem;
+      margin-bottom: 2.5rem;
+      animation: fadeInUp 1s 0.6s ease both;
+    }
+    .chip {
+      display: flex; align-items: center; gap: 0.4rem;
+      background: var(--glass2); border: 1px solid var(--border);
+      color: var(--light); font-size: 0.82rem; padding: 0.4rem 1rem;
+      border-radius: 50px; backdrop-filter: blur(10px);
+      transition: all 0.3s;
+    }
+    .chip:hover { background: rgba(14,165,233,0.15); border-color: rgba(14,165,233,0.4); transform: translateY(-2px); }
+    .hero-cta {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem;
+      animation: fadeInUp 1s 0.8s ease both;
+    }
+    .btn-primary-glow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: linear-gradient(135deg, var(--teal), var(--cyan));
+      color: var(--navy); font-weight: 700; font-size: 0.9rem;
+      padding: 0.75rem 1.8rem; border-radius: 50px; border: none;
+      text-decoration: none; transition: all 0.3s;
+      box-shadow: 0 0 30px rgba(14,165,233,0.3);
+    }
+    .btn-primary-glow:hover { transform: translateY(-3px); box-shadow: 0 0 50px rgba(14,165,233,0.5); color: var(--navy); }
+    .btn-outline-glow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: var(--light); font-weight: 600;
+      font-size: 0.9rem; padding: 0.75rem 1.8rem; border-radius: 50px;
+      border: 1.5px solid var(--border); text-decoration: none; transition: all 0.3s;
+    }
+    .btn-outline-glow:hover { border-color: var(--teal); color: var(--teal); background: rgba(14,165,233,0.08); transform: translateY(-3px); }
+
+    .scroll-indicator {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      color: var(--muted); font-size: 0.75rem; letter-spacing: 0.1em;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+
+    /* ─── SECTIONS ──────────────────────────────────────────────── */
+    section { position: relative; z-index: 1; padding: 6rem 1.5rem; }
+    .section-label {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--ff-mono); font-size: 0.75rem; color: var(--teal);
+      letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.75rem;
+    }
+    .section-label::before { content:'//'; opacity: 0.5; }
+    .section-title {
+      font-family: var(--ff-display);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 700; color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .section-title em { font-style: italic; color: var(--teal); }
+    .divider {
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--cyan));
+      border-radius: 2px; margin-bottom: 3rem;
+    }
+
+    /* ─── GLASS CARDS ───────────────────────────────────────────── */
+    .glass-card {
+      background: var(--glass2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      backdrop-filter: blur(16px);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+    .glass-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.35);
+      border-color: rgba(14,165,233,0.25);
+    }
+
+    /* ─── ABOUT ──────────────────────────────────────────────────── */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-portrait {
+      position: relative; border-radius: 20px; overflow: hidden;
+    }
+    .about-portrait img { width: 100%; display: block; border-radius: 20px; }
+    .about-portrait::after {
+      content:''; position: absolute; inset: 0;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(14,165,233,0.25), transparent 60%);
+      pointer-events: none;
+    }
+    .about-quote {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--light);
+      border-left: 3px solid var(--teal);
+      padding-left: 1.25rem;
+      margin: 1.5rem 0;
+      line-height: 1.6;
+    }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .tag {
+      background: rgba(14,165,233,0.1); border: 1px solid rgba(14,165,233,0.25);
+      color: var(--teal); font-family: var(--ff-mono); font-size: 0.75rem;
+      padding: 0.25rem 0.75rem; border-radius: 50px;
+    }
+
+    /* ─── IMPACT STATS ──────────────────────────────────────────── */
+    #impacts { background: linear-gradient(180deg, transparent, rgba(14,165,233,0.04), transparent); }
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; }
+    .stat-card {
+      padding: 2rem 1.5rem; text-align: center; border-radius: var(--radius);
+      background: var(--glass2); border: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .stat-card::before {
+      content:''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--teal), var(--emerald));
+    }
+    .stat-num {
+      font-family: var(--ff-display); font-size: 2.8rem; font-weight: 900;
+      background: linear-gradient(135deg, var(--teal), var(--cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      line-height: 1;
+    }
+    .stat-label { color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.5rem; }
+
+    /* ─── AWARDS ────────────────────────────────────────────────── */
+    .award-item {
+      display: flex; align-items: flex-start; gap: 1.2rem;
+      padding: 1.25rem 1.5rem; border-radius: 14px;
+      border: 1px solid var(--border); background: var(--glass);
+      margin-bottom: 0.75rem; transition: all 0.3s;
+    }
+    .award-item:hover { background: var(--glass2); border-color: rgba(14,165,233,0.2); transform: translateX(5px); }
+    .award-icon { font-size: 1.6rem; min-width: 2.2rem; }
+    .award-title { font-weight: 600; color: var(--white); }
+    .award-meta { font-size: 0.82rem; color: var(--muted); margin-top: 0.15rem; }
+
+    /* ─── RESEARCH ──────────────────────────────────────────────── */
+    .research-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+    .research-card {
+      background: var(--glass); border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden; cursor: pointer;
+      transition: all 0.35s;
+    }
+    .research-card:hover, .research-card.active {
+      background: var(--glass2); border-color: rgba(14,165,233,0.3);
+      transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .research-header {
+      padding: 1.1rem 1.25rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .research-emoji { font-size: 1.3rem; }
+    .research-title { font-weight: 600; color: var(--white); font-size: 0.92rem; }
+    .research-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+    }
+    .research-card.active .research-body { max-height: 200px; }
+    .research-body-inner {
+      padding: 0 1.25rem 1.25rem;
+      color: var(--muted); font-size: 0.85rem; line-height: 1.6;
+      border-top: 1px solid var(--border);
+      padding-top: 0.75rem;
+    }
+    .research-body-inner a { color: var(--teal); }
+    .research-card .toggle-icon { margin-left: auto; color: var(--muted); font-size: 0.8rem; transition: transform 0.3s; }
+    .research-card.active .toggle-icon { transform: rotate(180deg); }
+
+    /* ─── EXPERIENCE ────────────────────────────────────────────── */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content:''; position: absolute; left: 0; top: 0.5rem; bottom: 0.5rem;
+      width: 1px; background: linear-gradient(180deg, var(--teal), transparent);
+    }
+    .timeline-item { position: relative; margin-bottom: 2.5rem; }
+    .timeline-item::before {
+      content:''; position: absolute; left: -2.35rem; top: 0.5rem;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--teal); box-shadow: 0 0 15px rgba(14,165,233,0.6);
+    }
+    .timeline-date {
+      font-family: var(--ff-mono); font-size: 0.75rem; color: var(--teal);
+      letter-spacing: 0.1em; margin-bottom: 0.4rem;
+    }
+    .timeline-role { font-weight: 700; font-size: 1.05rem; color: var(--white); }
+    .timeline-org { color: var(--muted); font-size: 0.88rem; margin-bottom: 0.75rem; }
+    .timeline-list { list-style: none; }
+    .timeline-list li {
+      position: relative; padding-left: 1rem; color: var(--light); font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+    .timeline-list li::before { content:'→'; position: absolute; left: 0; color: var(--teal); }
+
+    /* ─── GALLERY ───────────────────────────────────────────────── */
+    .gallery-track-wrap { overflow: hidden; border-radius: var(--radius); position: relative; }
+    #gallery-track { display: flex; transition: transform 0.6s cubic-bezier(.4,0,.2,1); }
+    #gallery-track img {
+      flex: 0 0 50%; height: 300px; object-fit: contain;
+      width: 100%;
+      padding: 0 0.25rem;
+      background: #222; /* Optional: for letterboxing effect */
+      display: block;
+    }
+    @media (max-width: 600px) { #gallery-track img { flex: 0 0 100%; } }
+    .gallery-controls { display: flex; justify-content: center; gap: 0.75rem; margin-top: 1.25rem; }
+    .gallery-btn {
+      width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      background: var(--glass2); border: 1px solid var(--border); color: var(--light);
+      cursor: pointer; transition: all 0.3s; font-size: 0.9rem;
+    }
+    .gallery-btn:hover { background: var(--teal); color: var(--navy); border-color: var(--teal); }
+
+    /* ─── T-REX GAME ────────────────────────────────────────────── */
+    #trex-container {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 1rem; max-width: 480px; margin: 0 auto;
+    }
+    #trex-canvas {
+      background: rgba(0,0,0,0.3); border-radius: 12px;
+      border: 1px solid var(--border); width: 100%; max-width: 440px;
+    }
+    .game-hint { font-family: var(--ff-mono); font-size: 0.75rem; color: var(--muted); letter-spacing: 0.1em; }
+
+    /* ─── FOOTER ────────────────────────────────────────────────── */
+    footer {
+      position: relative; z-index: 1; padding: 3rem 1.5rem;
+      text-align: center; border-top: 1px solid var(--border);
+    }
+    footer p { color: var(--muted); font-size: 0.85rem; }
+    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--teal); }
+
+    /* ─── MISC UTILS ────────────────────────────────────────────── */
+    .container-xl { max-width: 1100px; margin: 0 auto; }
+    a { transition: all 0.25s; }
+    .text-teal { color: var(--teal); }
+    .text-muted-custom { color: var(--muted); }
+
+    /* ─── SCROLLBAR ─────────────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--navy); }
+    ::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
+  </style>
 </head>
 <body>
-  <div class="floating-object" style="left:10%; animation-delay:0s;"></div>
-	<div class="floating-object trail1" style="left:10%; animation-delay:0.3s;"></div>
-	<div class="floating-object trail2" style="left:10%; animation-delay:0.6s;"></div>
-	<div class="floating-object trail3" style="left:10%; animation-delay:0.9s;"></div>
-<div class="floating-object" style="left:30%; width:30px; height:30px; animation-delay:2s;"></div>
-	<div class="floating-object trail1" style="left:30%; width:30px; height:30px; animation-delay:2.3s;"></div>
-	<div class="floating-object trail2" style="left:30%; width:30px; height:30px; animation-delay:2.6s;"></div>
-	<div class="floating-object trail3" style="left:30%; width:30px; height:30px; animation-delay:2.9s;"></div>
-  <div class="floating-object"style="left:40%; width:30px; height:30px; animation-delay:4s;"></div>
-	<div class="floating-object trail1" style="left:42%; width:30px; height:30px; animation-delay:4.3s;"></div>
-  <div class="floating-object"style="left:60%; width:30px; height:30px; animation-delay:6s;"></div>
-	<div class="floating-object trail1" style="left:59%; width:20px; height:20px; animation-delay:6.3s;"></div>
-  <div class="floating-object"></div>
-  <div class="floating-object"></div>
 
-  <!-- Sidebar Navigation -->
-  <nav class="topnav">
-    <ul>
-      <li><a href="#about">About Me</a></li>
-      <li><a href="#photo">Photo Gallery</a></li>
-      <li><a href="#awards">Recognitions</a></li>
-      <li><a href="#impacts">Impacts</a></li>
+<!-- Animated canvas background -->
+<canvas id="bg-canvas"></canvas>
+
+<!-- ─── NAVBAR ─────────────────────────────────────────────── -->
+<nav id="navbar">
+  <div class="container-xl d-flex justify-content-between align-items-center">
+    <a href="#hero" class="brand">NK<span>.</span></a>
+    <button class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#photo">Gallery</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#impacts">Impact</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#cv">CV</a></li>
-      <li><a href="#references">References</a></li>
-     </ul>
-  </nav>
+      <li><a href="#trex-game">🦕 Game</a></li>
+    </ul>
+  </div>
+</nav>
 
-  <!-- Main Content -->
-  <div class="content-wrapper position-relative" style="z-index: 0;">
-    <header   class="mb-2"  style="margin-top: 15px; padding-top:0.5rem; display:flex; justify-content:center; align-items:center; text-align:center;">
-      <section class="hero" style="display: flex; justify-content: center; padding: 1rem 0;max-width:1050px; width:100%;">
-        <div class="hero-card" data-depth="0" style="max-width:1050px; width:100%;">
-            <h1>NISCHAL KAFLE</h1>
-              <div class="hero-subtitle">
-                <p><strong>Ph.D. Candidate in Civil Engineering</strong> | University of Memphis 
-                  <img src="docs/uofm-logo.png" alt="University of Memphis logo" 
-                      style="height:30px; vertical-align:middle; margin-left:8px;">
-                </p>
-                <p>🌧️ Water Resource Engineering | 🧠 Hydrologist | 🐍 Pythonista</p>
-                <p>From the high mountains of <strong>Nepal 🇳🇵</strong></p>
-                </div>
-              <div class="contact-links">
-                <a href="mailto:nkafle@memphis.edu" class="contact-link">
-                  <i class="fas fa-envelope"></i>
-                  University Email
-                </a>
-                <a href="mailto:nkafle.29@gmail.com" class="contact-link">
-                  <i class="fas fa-envelope"></i>
-                  Personal Email
-                </a>
-                <a href="https://scholar.google.com/citations?user=5x8WK2EAAAAJ&hl=en" target="_blank" class="contact-link">
-                  <i class="fas fa-graduation-cap"></i>
-                  Google Scholar
-                </a>
-                <a href="https://www.linkedin.com/in/nischal-kafle-67073a195/" target="_blank" class="contact-link">
-                  <i class="fab fa-linkedin"></i>
-                  LinkedIn
-                </a>
-              </div>
-        </div>
-      </section>
-    </header>
-
-    <hr />
-
-    <!-- Flex container for About Me and Gallery -->
-  <!--<div class="flex-container" style="
-  display: flex; 
-  justify-content: space-between; 
-  align-items: stretch; 
-  flex-wrap: nowrap; 
-  max-width: 1400px; 
-  margin: 0 auto;
-  gap: 0.5rem;"> -->
-    <section id="about" class="section" style="display: flex; justify-content: center; padding: 1rem 0;">
-      <div class="card" data-depth="1" style="width: 1050px;">
-          <h2>About Me</h2>
-              <p>I am a Ph.D. candidate in Civil Engineering at the University of Memphis, specializing in 
-                <strong>stochastic hydrology</strong>, <strong>meteorology</strong>, and <strong>engineering applications</strong>. 
-                My research improves modeling of short-duration extreme rainfall for urban
-                infrastructure design, climate resilience, and flood risk management.</p>
-              <p><strong>Advisor:</strong> <a href="https://www.memphis.edu/ce/people/cimeier.php" target="_blank">Dr. Claudio Meier</a></p>
-
-          <div style="overflow: auto; padding: 1rem; border-radius: 10px;
-                  width: 550px;
-                  height: 180px;
-                  margin: 0 auto;
-                  overflow: hidden;
-                  border-radius: 16px;
-                  background-color: white;
-                  position: relative;">
-            <img src="docs/image.png"  alt="Descriptive text" style="float: left; 
-              width: 30%; margin-right: 0.1rem; border-radius: 8px; 
-              image-rendering: auto; box-shadow: 0 2px 6px rgba(0,0,0,0.1);" >
-            <blockquote style="margin: 0; font-style: italic; color: #333;">
-              "Science, to me, is a process of decoding the unseen, especially where water and uncertainty meet..."
-            </blockquote>
-          </div>
-        </div>
-	  </section>
-		<hr>
-    <section id="photo" class="section" style="display: flex; justify-content: center; padding: 1rem 0;">
-      <div class="card" data-depth="1" style="width: 1050px; height: 100%">
-      <h2>🏞️ Gallery</h2>
-
-        <div style="
-            width: 600px;
-            height: 250px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 16px;
-            background-color: white;
-            position: relative;
-          ">
-            <div id="carousel-track" style="
-              display: flex;
-              transition: transform 0.6s ease-in-out;
-              width: max-content;
-            ">
-              <img src="docs/plot1.png" style="width: 350px; height: 250px; object-fit: contain;" />
-              <img src="docs/plot2.jpg" style="width: 350px; height: 250px; object-fit: contain;" />
-              <img src="docs/storm.gif" style="width: 350px; height: 250px; object-fit: contain;" />
-              <img src="docs/plot3.jpg" style="width: 350px; height: 250px; object-fit: contain;" />
-              <img src="docs/plot4.jpg" style="width: 350px; height: 250px; object-fit: contain;" />
-              <img src="docs/plot5.jpg" style="width: 350px; height: 250px; object-fit: contain;" />
-              <img src="docs/uofm.jpeg" style="width: 350px; height: 250px; object-fit: contain;" />
-              <img src="docs/world.JPG" style="width: 350px; height: 250px; object-fit: contain;" />
-              <img src="docs/nheri.JPG" style="width: 350px; height: 250px; object-fit: contain;" />
-              <img src="docs/agu.JPG" style="width: 350px; height: 250px; object-fit: contain;" />
-              <img src="docs/IMG_4780.JPG" style="width: 350px; height: 250px; object-fit: contain;" />
-            </div>
-          </div>
-        <div style="text-align: center;">
-          <button onclick="nextSlide()" style="
-            margin-top: 15px;
-            padding: 8px 16px;
-            font-size: 14px;
-            background-color: #ffffff;
-            color: #060800;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-          ">Next ▶️</button></div>
-        </div>
-    </section>
-
-    <hr>
-    <section id="awards" class="section" style="display: flex; justify-content: center; padding: 1rem 0;" >
-    <div class="card" data-depth="2" style="max-width:1050px; width:100%;">
-	  <h2 >🏆 Recognitions & Awards</h2>
-	  <ul style="line-height: 1.8; list-style-type: '🌟 '; padding-left: 1em;">
-	    <li><strong>World-Class Achiever</strong> — Honored by the Division of International Affairs, University of Memphis</li>
-	    <li><strong>$5000 Dissertation Completion Grant</strong> — Awarded for Summer 2025 by the Graduate School</li>
-	    <li><strong>Graduate Assistantship</strong> — Department of Civil Engineering, University of Memphis (Aug 2021 – Present)</li>
-	    <li><strong>Excellence in Engineering</strong> — Appreciation Award from the Department of Irrigation, Nepal (2018)</li>
-	    <li><strong>Leadership in Public Service</strong> — Recognition for conflict resolution as an Election Officer, Sindhupalchowk DAO (2018)</li>
-	    <li><strong>Full Merit-Based Scholarship</strong> — Secured Rank 26 in national IOE entrance exam among 10,000+ applicants (2010)</li>
-	  </ul></div>
-	</section>
-
-  <section id="impacts" class="section" style="display: flex; justify-content: center; padding: 1rem 0;">
-       <div class="card" data-depth="3" style="max-width:1050px; width:100%;">
-        <h2><i class="fas fa-globe-americas"></i> Real World Impact</h2>
-        <p style="text-align: center; font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem;">
-          From Nepal to Memphis - Making a difference through research and community engagement
-        </p>
-        
-        <div class="impact-stats">
-          <div class="stat-card">
-            <div class="stat-number">500+</div>
-            <div class="stat-label">Lives Protected</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">150+</div>
-            <div class="stat-label">Infrastructure Projects</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">60+</div>
-            <div class="stat-label">US Residents Trained</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">500+</div>
-            <div class="stat-label">Nepalese Residents Trained</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">40+</div>
-            <div class="stat-label">Students Instructed</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">10+</div>
-            <div class="stat-label">International Conferences</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">1+</div>
-            <div class="stat-label">Open-source Projects</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">5+</div>
-            <div class="stat-label">Events Organized as NSS President</div>
-          </div>
-        </div>
-        
-        <div style="margin-top: 2rem;">
-          <h3>🏙️ Memphis Flood Modeling</h3>
-          <p>Led comprehensive flood modeling for underserved South Memphis communities using PCSWMM. Created critical flood maps and animations that directly informed city planning decisions.</p>
-          <!--  
-			<div style="font-style: italic; color: #d63a3a; margin: 1rem 0; padding-left: 1rem; border-left: 3px solid #667eea;">
-            "This isn't just academic research - it's about protecting real families in real neighborhoods."
-          </div>-->
-          
-          <h3>🌍 Infrastructure Development</h3>
-          <p>As a Gazetted Officer in Nepal, managed technical operations for 150+ irrigation and disaster mitigation projects, collaborating with World Bank and ADB.</p>
-          <div style="font-weight: bold; color: var(--accent-blue); margin: 1rem 0;">
-            From Himalayan villages to American cities - water connects us all.
-          </div>
-        </div>
-      </div>
-    </section>
-    
-  <hr>
-    <section id="research" class="section" style="display: flex; justify-content: center; padding: 1rem 0;">
-      <div class="card fade-in" data-depth="2" style="max-width:1050px; width:100%;">
-        <h2><i class="fas fa-flask"></i> Current Research Areas</h2>
-            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 1rem;">
-              Click on any research area to learn more
-            </p>
-
-        <div class="research-grid">
-          <div class="research-card">
-            <div class="research-title">📦 nsEVDx Python Library...</div>
-            <div class="research-content">
-              Open-source Python package for modeling non-stationary extreme value distributions – <a href="https://github.com/Nischalcs50/nsEVDx" target="_blank">View on GitHub</a>
-          </div>
-        </div>
-      
-        <div class="research-card">
-          <div class="research-title">📊 Trend detection in extreme rainfall...</div>
-          <div class="research-content">
-            Using Bayesian and frequentist approaches for trend detection in rainfall extremes.
-          </div>
-        </div>
-      
-        <div class="research-card">
-          <div class="research-title">🌦️ Remote Sensing + ML...</div>
-          <div class="research-content">
-            Integrating Remote Sensing and Transformers for drought and flood prediction.
-          </div>
-        </div>
-      
-        <div class="research-card">
-          <div class="research-title">🔍 Neighborhood-based Trend Detection...</div>
-          <div class="research-content">
-            A novel spatial method to enhance our ability to detect trend in extreme rainfall <em>(Submitted)</em>
-          </div>
-        </div>
-      
-        <div class="research-card">
-          <div class="research-title">📈 Effect of Minimum Interevent Time (MIT)...</div>
-          <div class="research-content">
-            Evaluating the effect of MIT choices on regional DDF curves <em>(Submitted)</em>
-          </div>
-        </div>
-      
-        <div class="research-card">
-          <div class="research-title">🎯 Extracting Spatially Independent Partial Duration Series...</div>
-          <div class="research-content">
-            Using radar reflectivity and simplified storm motion to extract spatially independent rainfall maxima <em>(AGU 2024, manuscript in prep)</em>
-          </div>
-        </div>
-      
-        <div class="research-card">
-          <div class="research-title">⛅ Rainfall Disaggregation with Transformers...</div>
-          <div class="research-content">
-            Disaggregating daily rainfall to sub-daily (n-minute) using transformers <em>(In preparation)</em>
-	        </div>
-	      </div>
-	
-        <div class="research-card">
-          <div class="research-title">🛰️ Impact of Rain-Gauge Network Density on DDFs...</div>
-          <div class="research-content">
-            Studying how spatial/temporal resolution of rain-gauge network affect the DDF estimates <em>(AGU & ASCE-EWRI 2024)</em>
-          </div>
-        </div>
-      
-        <div class="research-card">
-          <div class="research-title">🏙️ Urban Flood Modeling – Memphis...</div>
-          <div class="research-content">
-            Simulated flood events in the underserved South Memphis neighborhood using PCSWMM
-            ; Created flood maps & animations for city planning. <br>
-            Participated in community meetings, informing over 60 residents about flood risks and preparedness
-          </div>
-        </div>
-      
-        <div class="research-card">
-          <div class="research-title">📉 GCM Bias Correction & Downscaling...</div>
-          <div class="research-content">
-            Compared various statistical methods (e.g., QM, DQM, UQM) in Chilean basins under climate change scenarios
-      </div>
-	  </div>
-	
-	  
-	  <div class="research-card" >
-	    <div class="research-title">🧘 Non-dualistic Vedanta...</div>
-	    <div class="research-content">
-	      Investigating "Who is the Seer and what is actually Seen?" through personal experiments
-		    <br> Examining and experimenting with the logical frameworks mentioned in the Upanishads
-	    </div>
-	  </div>
-	</div>
-</div>
-	</section>
-
-	  <hr>
-
-    <section id="experience" class="section" style="display: flex; justify-content: center; padding: 1rem 0;">
-      <div class="card" data-depth="4" style="max-width:1050px; width:100%;">
-      <h2>💼 Professional Experience</h2>
-      <h5>Gazetted Officer – Water Resources Engineer</h5>
-      <p><strong>Ministry of Irrigation, Department of Irrigation, Nepal</strong> | Aug 2015 – Aug 2021</p>
-      <ul>
-        <li>Managed technical operations for 150+ irrigation and disaster mitigation projects</li>
-        <li>Led environmental impact assessments, hazard mapping, and community training programs</li>
-        <li>Collaborated with international partners (ADB, World Bank)</li>
-        <li>Conducted groundwater research in Lumbini Province</li>
-      </ul>
-      <h5>Consulting Engineer, Project Manager & GIS Expert</h5>
-      <p><strong>Bright Future International Pvt. Ltd.</strong> | Dec 2014 – Jul 2015</p>
-      <ul>
-        <li>Developed transportation master plans for 5 rural municipalities</li>
-        <li>Facilitated ward committee meetings for inclusive planning</li>
-      </ul>
+<!-- ─── HERO ────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="container-xl" style="position:relative;z-index:1">
+    <div class="hero-tag"><i class="fas fa-water"></i> Water Resources Engineer & Researcher</div>
+    <h1 class="hero-name">Nischal Kafle</h1>
+    <p class="hero-title">
+      <strong>Ph.D. Candidate</strong> in Civil Engineering · University of Memphis<br>
+      From the high mountains of <strong>Nepal 🇳🇵</strong>
+    </p>
+    <div class="hero-chips">
+      <div class="chip">🌧️ Stochastic Hydrology</div>
+      <div class="chip">🧠 Machine Learning</div>
+      <div class="chip">🐍 Python / Open-Source</div>
+      <div class="chip">🛰️ Remote Sensing</div>
+      <div class="chip">📊 Extreme Value Analysis</div>
     </div>
-    </section>
+    <div class="hero-cta">
+      <a href="https://scholar.google.com/citations?user=5x8WK2EAAAAJ&hl=en" target="_blank" class="btn-primary-glow">
+        <i class="fas fa-graduation-cap"></i> Google Scholar
+      </a>
+      <a href="https://www.linkedin.com/in/nischal-kafle-67073a195/" target="_blank" class="btn-outline-glow">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="mailto:nkafle@memphis.edu" class="btn-outline-glow">
+        <i class="fas fa-envelope"></i> Email Me
+      </a>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span>SCROLL</span><i class="fas fa-chevron-down"></i>
+  </div>
+</section>
 
-    <hr />
-
-    <section id="cv" class="section" style="display: flex; justify-content: center; padding: 1rem 0;">
-      <div class="card" data-depth="4" style="max-width:1050px; width:100%;">
-      <h2>CV</h2>
-      <p>📄 <a href="docs/General_CV.pdf" target="_blank">my CV</a></p>
-      <p>🌐 <a href="https://Nischalcs50.github.io" target="_blank">Personal Website</a></p>
-      <p>💬 Open to research and collaboration opportunities</p>
+<!-- ─── ABOUT ────────────────────────────────────────────────── -->
+<section id="about">
+  <div class="container-xl">
+    <div data-aos="fade-up">
+      <div class="section-label">About</div>
+      <h2 class="section-title">Water, <em>Code</em> & Uncertainty</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="about-grid">
+      <div data-aos="fade-right">
+        <p style="color:var(--light);font-size:1.05rem;margin-bottom:1.25rem;">
+          I'm a Ph.D. candidate in Civil Engineering at the University of Memphis, specializing in
+          <strong style="color:var(--teal)">stochastic hydrology</strong>,
+          <strong style="color:var(--teal)">meteorology</strong>, and engineering applications. My research improves
+          modeling of short-duration extreme rainfall for urban infrastructure design, climate resilience,
+          and flood risk management.
+        </p>
+        <p style="color:var(--muted);margin-bottom:1.5rem;">
+          <strong style="color:var(--light)">Advisor:</strong>
+          <a href="https://www.memphis.edu/ce/people/cimeier.php" target="_blank" style="color:var(--teal)">
+            Dr. Claudio Meier</a>, University of Memphis
+        </p>
+        <div class="about-quote">
+          "Science, to me, is a process of decoding the unseen — especially where water and uncertainty meet..."
+        </div>
+        <div class="tag-cloud">
+          <span class="tag">DDF Curves</span>
+          <span class="tag">Bayesian Stats</span>
+          <span class="tag">Transformers</span>
+          <span class="tag">PCSWMM</span>
+          <span class="tag">nsEVDx</span>
+          <span class="tag">Radar Data</span>
+          <span class="tag">GCM Downscaling</span>
+          <span class="tag">Partial Duration Series</span>
+        </div>
       </div>
-    </section>
-	  
-    <hr />
-  
-    <section id="references" class="section" style="display: flex; justify-content: center; padding: 1rem 0;">
-      <div class="card" data-depth="4" style="max-width:1050px; width:100%;">
-      <h2>📚 References</h2>
-      ...
-    </div></section>
-
-<hr />
-<!-- Trex Runner Game Section -->
-<section id="trex-game" class="section text-center" style="display: flex; justify-content: center; padding: 1rem 0;">
-  <div class="card" data-depth="1" style="width: 1050px;">
-    <h2> Need a break ? Play T-REX game</h2>
-    <div id="trex-container" style="
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto;
-        background: #f9f9f9;
-        border-radius: 10px;
-        padding: 2rem 0 1rem 0;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.07);
-        width: 400px;
-        max-width: 98vw;">
-      <canvas id="trex-canvas" width="380" height="120" style="background: #fff; border-radius:8px; border:1px solid #e0e0e0;"></canvas>
-      <p style="margin-top:10px; color:#666; font-size:1rem;">Press SPACE or TAP to jump!</p>
+      <div data-aos="fade-left" class="about-portrait glass-card" style="padding:1.5rem">
+        <div style="font-size:5rem;text-align:center;margin-bottom:1rem;">🏔️</div>
+        <div style="text-align:center;color:var(--muted);font-size:0.85rem;line-height:1.7">
+          <p>🎓 Ph.D. Candidate — University of Memphis</p>
+          <p>🇳🇵 Originally from Nepal, now based in Memphis, TN</p>
+          <p>🧑‍💻 Open-source contributor — <a href="https://github.com/Nischalcs50/nsEVDx" target="_blank" style="color:var(--teal)">nsEVDx</a></p>
+          <p>🌍 Ex Government Engineer — Ministry of Irrigation, Nepal</p>
+          <p>🤝 ADB · World Bank partner projects</p>
+          <p style="margin-top:1rem;color:var(--teal);font-family:var(--ff-mono);font-size:0.8rem">
+            "Always curious. Always computing."
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  
-<script src="main_js.js"></script>
-<script src="Trex.js"></script>
+<!-- ─── GALLERY ───────────────────────────────────────────────── -->
+<section id="photo" style="background:linear-gradient(180deg, transparent, rgba(14,165,233,0.03), transparent)">
+  <div class="container-xl">
+    <div data-aos="fade-up">
+      <div class="section-label">Gallery</div>
+      <h2 class="section-title">Tracing the <em>Process</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div data-aos="fade-up" data-aos-delay="200">
+      <div class="gallery-track-wrap">
+        <div id="gallery-track">
+          <img src="docs/1.jpg"  alt="Photo 1" />
+          <img src="docs/2.png"  alt="Photo 2" />
+          <img src="docs/3.jpg"  alt="Photo 3" />
+          <img src="docs/4.jpg"  alt="Photo 4" />
+          <img src="docs/5.bmp"  alt="Photo 5" />
+          <img src="docs/6.jpeg" alt="Photo 6" />
+          <img src="docs/7.bmp"  alt="Photo 7" />
+          <img src="docs/8.JPG"  alt="Photo 8" />
+          <img src="docs/9.jpg"  alt="Photo 9" />
+          <img src="docs/10.JPG" alt="Photo 10" />
+          <img src="docs/11.jpg" alt="Photo 11" />
+        </div>
+      </div>
+      <div class="gallery-controls">
+        <div class="gallery-btn" onclick="galleryPrev()"><i class="fas fa-chevron-left"></i></div>
+        <div class="gallery-btn" onclick="galleryNext()"><i class="fas fa-chevron-right"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- ─── AWARDS ────────────────────────────────────────────────── -->
+<section id="awards">
+  <div class="container-xl">
+    <div data-aos="fade-up">
+      <div class="section-label">Recognition</div>
+      <h2 class="section-title">Awards & <em>Honors</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div id="awards-list">
+      <div class="award-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="award-icon">🏆</div>
+        <div>
+          <div class="award-title">Outstanding Graduate Research Award</div>
+          <div class="award-meta">University of Memphis · 2024</div>
+        </div>
+      </div>
+      <div class="award-item" data-aos="fade-up" data-aos-delay="150">
+        <div class="award-icon">🎓</div>
+        <div>
+          <div class="award-title">Graduate Research Assistantship</div>
+          <div class="award-meta">University of Memphis · 2021–Present</div>
+        </div>
+      </div>
+      <div class="award-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="award-icon">🌏</div>
+        <div>
+          <div class="award-title">Gazetted Officer — Government of Nepal</div>
+          <div class="award-meta">Ministry of Irrigation · 2015–2021</div>
+        </div>
+      </div>
+      <div class="award-item" data-aos="fade-up" data-aos-delay="250">
+        <div class="award-icon">🎤</div>
+        <div>
+          <div class="award-title">Presenter — AGU Fall Meeting 2024</div>
+          <div class="award-meta">American Geophysical Union · Washington, D.C.</div>
+        </div>
+      </div>
+      <div class="award-item" data-aos="fade-up" data-aos-delay="300">
+        <div class="award-icon">📝</div>
+        <div>
+          <div class="award-title">ASCE-EWRI 2024 Conference Presenter</div>
+          <div class="award-meta">Environmental & Water Resources Institute · 2024</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── IMPACTS ───────────────────────────────────────────────── -->
+<section id="impacts">
+  <div class="container-xl">
+    <div data-aos="fade-up">
+      <div class="section-label">Impact</div>
+      <h2 class="section-title">By the <em>Numbers</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="stat-num" data-target="150">0</div>
+        <div class="stat-label">Projects Managed</div>
+      </div>
+      <div class="stat-card" data-aos="fade-up" data-aos-delay="150">
+        <div class="stat-num" data-target="6">0</div>
+        <div class="stat-label">Years Gov. Service</div>
+      </div>
+      <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="stat-num" data-target="60">0</div>
+        <div class="stat-label">Residents Educated</div>
+      </div>
+      <div class="stat-card" data-aos="fade-up" data-aos-delay="250">
+        <div class="stat-num" data-target="10">0</div>
+        <div class="stat-label">Research Projects</div>
+      </div>
+      <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="stat-num" data-target="5">0</div>
+        <div class="stat-label">Master Plans Developed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── RESEARCH ──────────────────────────────────────────────── -->
+<section id="research">
+  <div class="container-xl">
+    <div data-aos="fade-up">
+      <div class="section-label">Research</div>
+      <h2 class="section-title">Current <em>Research</em> Areas</h2>
+      <div class="divider"></div>
+      <p style="color:var(--muted);margin-bottom:2rem;">Click any card to expand details ↓</p>
+    </div>
+    <div class="research-grid" id="research-grid">
+      <!-- Cards injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ─── EXPERIENCE ────────────────────────────────────────────── -->
+<section id="experience">
+  <div class="container-xl">
+    <div data-aos="fade-up">
+      <div class="section-label">Experience</div>
+      <h2 class="section-title">Professional <em>Journey</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="timeline" data-aos="fade-up">
+      <div class="timeline-item">
+        <div class="timeline-date">AUG 2021 — PRESENT</div>
+        <div class="timeline-role">Ph.D. Research Assistant</div>
+        <div class="timeline-org">University of Memphis, Department of Civil Engineering</div>
+        <ul class="timeline-list">
+          <li>Developing non-stationary extreme value models for short-duration rainfall</li>
+          <li>Built & published <code style="color:var(--teal)">nsEVDx</code> — open-source Python library for extreme value distributions</li>
+          <li>Investigated MIT effects on regional DDF estimation</li>
+          <li>Conducted urban flood modeling in South Memphis with PCSWMM</li>
+          <li>Community outreach: informed 60+ residents about flood risk preparedness</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">AUG 2015 — AUG 2021</div>
+        <div class="timeline-role">Gazetted Officer — Water Resources Engineer</div>
+        <div class="timeline-org">Ministry of Irrigation, Department of Irrigation, Nepal</div>
+        <ul class="timeline-list">
+          <li>Managed technical operations for 150+ irrigation & disaster mitigation projects</li>
+          <li>Led environmental impact assessments, hazard mapping, community training</li>
+          <li>Collaborated with international partners — ADB, World Bank</li>
+          <li>Conducted groundwater research in Lumbini Province</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">DEC 2014 — JUL 2015</div>
+        <div class="timeline-role">Consulting Engineer, Project Manager & GIS Expert</div>
+        <div class="timeline-org">Bright Future International Pvt. Ltd.</div>
+        <ul class="timeline-list">
+          <li>Developed transportation master plans for 5 rural municipalities</li>
+          <li>Facilitated ward committee meetings for inclusive planning</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CV ───────────────────────────────────────────────────── -->
+<section id="cv" style="text-align:center;background:linear-gradient(180deg,transparent,rgba(14,165,233,0.04),transparent)">
+  <div class="container-xl" data-aos="fade-up">
+    <div class="section-label" style="justify-content:center">CV & Links</div>
+    <h2 class="section-title">Get In <em>Touch</em></h2>
+    <div class="divider" style="margin:0 auto 2rem"></div>
+    <p style="color:var(--muted);max-width:500px;margin:0 auto 2.5rem">
+      Open to research collaborations, consulting, and academic opportunities.
+    </p>
+    <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:1rem">
+      <a href="docs/General_CV.pdf" target="_blank" class="btn-primary-glow">
+        <i class="fas fa-file-pdf"></i> Download CV
+      </a>
+      <a href="https://Nischalcs50.github.io" target="_blank" class="btn-outline-glow">
+        <i class="fas fa-globe"></i> Personal Website
+      </a>
+      <a href="https://github.com/Nischalcs50" target="_blank" class="btn-outline-glow">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── T-REX GAME ────────────────────────────────────────────── -->
+<section id="trex-game">
+  <div class="container-xl" style="text-align:center">
+    <div data-aos="fade-up">
+      <div class="section-label" style="justify-content:center">Easter Egg</div>
+      <h2 class="section-title">Need a <em>Break?</em></h2>
+      <div class="divider" style="margin:0 auto 2rem"></div>
+      <p style="color:var(--muted);margin-bottom:2rem">Press SPACE or tap to jump. Avoid the obstacles! 🦕</p>
+    </div>
+    <div id="trex-container" data-aos="zoom-in">
+      <canvas id="trex-canvas" width="440" height="130"></canvas>
+      <p class="game-hint">SPACE / TAP TO JUMP · TAP AGAIN TO RESTART</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-links">
+    <a href="mailto:nkafle@memphis.edu"><i class="fas fa-envelope me-1"></i>Email</a>
+    <a href="https://scholar.google.com/citations?user=5x8WK2EAAAAJ&hl=en" target="_blank"><i class="fas fa-graduation-cap me-1"></i>Scholar</a>
+    <a href="https://www.linkedin.com/in/nischal-kafle-67073a195/" target="_blank"><i class="fab fa-linkedin me-1"></i>LinkedIn</a>
+    <a href="https://github.com/Nischalcs50" target="_blank"><i class="fab fa-github me-1"></i>GitHub</a>
+  </div>
+  <p>© 2025 Nischal Kafle · Ph.D. Candidate, University of Memphis 🇳🇵</p>
+</footer>
+
+<!-- ─── SCRIPTS ───────────────────────────────────────────────── -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+// ── INIT AOS ──────────────────────────────────────────────────────
+AOS.init({ duration: 750, once: true, offset: 80 });
+
+// ── NAVBAR ACTIVE / HAMBURGER ─────────────────────────────────────
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+const sections = document.querySelectorAll('section[id]');
+const navAs = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) cur = s.id; });
+  navAs.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + cur);
+  });
+});
+
+// ── ANIMATED BACKGROUND ────────────────────────────────────────────
+const bgCanvas = document.getElementById('bg-canvas');
+const bgCtx = bgCanvas.getContext('2d');
+let particles = [];
+function resizeBg() { bgCanvas.width = window.innerWidth; bgCanvas.height = window.innerHeight; }
+resizeBg(); window.addEventListener('resize', resizeBg);
+
+for (let i = 0; i < 60; i++) {
+  particles.push({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    vx: (Math.random() - 0.5) * 0.3,
+    vy: (Math.random() - 0.5) * 0.3,
+    r: Math.random() * 1.5 + 0.3,
+    a: Math.random() * 0.4 + 0.1,
+  });
+}
+
+// click ripple
+let ripples = [];
+document.addEventListener('click', (e) => {
+  ripples.push({ x: e.clientX, y: e.clientY, r: 0, a: 0.6 });
+});
+
+function drawBg() {
+  bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+  // Draw connections
+  for (let i = 0; i < particles.length; i++) {
+    for (let j = i+1; j < particles.length; j++) {
+      const dx = particles[i].x - particles[j].x;
+      const dy = particles[i].y - particles[j].y;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      if (dist < 120) {
+        bgCtx.strokeStyle = `rgba(14,165,233,${0.06 * (1 - dist/120)})`;
+        bgCtx.lineWidth = 0.5;
+        bgCtx.beginPath();
+        bgCtx.moveTo(particles[i].x, particles[i].y);
+        bgCtx.lineTo(particles[j].x, particles[j].y);
+        bgCtx.stroke();
+      }
+    }
+    // Draw dot
+    bgCtx.fillStyle = `rgba(14,165,233,${particles[i].a})`;
+    bgCtx.beginPath();
+    bgCtx.arc(particles[i].x, particles[i].y, particles[i].r, 0, Math.PI*2);
+    bgCtx.fill();
+    // Move
+    particles[i].x += particles[i].vx;
+    particles[i].y += particles[i].vy;
+    if (particles[i].x < 0 || particles[i].x > bgCanvas.width) particles[i].vx *= -1;
+    if (particles[i].y < 0 || particles[i].y > bgCanvas.height) particles[i].vy *= -1;
+  }
+  // Ripples
+  ripples = ripples.filter(rp => rp.a > 0);
+  ripples.forEach(rp => {
+    bgCtx.strokeStyle = `rgba(14,165,233,${rp.a})`;
+    bgCtx.lineWidth = 1.5;
+    bgCtx.beginPath();
+    bgCtx.arc(rp.x, rp.y, rp.r, 0, Math.PI*2);
+    bgCtx.stroke();
+    rp.r += 3; rp.a -= 0.015;
+  });
+  requestAnimationFrame(drawBg);
+}
+drawBg();
+
+// ── COUNTER ANIMATION ──────────────────────────────────────────────
+const statNums = document.querySelectorAll('.stat-num[data-target]');
+const countObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = +el.dataset.target;
+    let cur = 0;
+    const step = Math.ceil(target / 50);
+    const t = setInterval(() => {
+      cur = Math.min(cur + step, target);
+      el.textContent = cur + (target >= 100 ? '+' : '');
+      if (cur >= target) clearInterval(t);
+    }, 30);
+    countObs.unobserve(el);
+  });
+}, { threshold: 0.5 });
+statNums.forEach(n => countObs.observe(n));
+
+// ── GALLERY ────────────────────────────────────────────────────────
+let gallerySlide = 0;
+const track = document.getElementById('gallery-track');
+const totalImgs = track.children.length;
+const vis = window.innerWidth < 600 ? 1 : 2;
+function updateGallery() {
+  track.style.transform = `translateX(-${gallerySlide * (100/vis)}%)`;
+}
+function galleryNext() {
+  gallerySlide = (gallerySlide + 1) % (totalImgs - vis + 1);
+  updateGallery();
+}
+function galleryPrev() {
+  gallerySlide = (gallerySlide - 1 + (totalImgs - vis + 1)) % (totalImgs - vis + 1);
+  updateGallery();
+}
+setInterval(galleryNext, 5000);
+
+// ── RESEARCH CARDS ─────────────────────────────────────────────────
+const researchData = [
+  { emoji: '📦', title: 'nsEVDx Python Library', body: 'Open-source Python package for modeling non-stationary extreme value distributions. <a href="https://github.com/Nischalcs50/nsEVDx" target="_blank" style="color:var(--teal)">View on GitHub →</a>' },
+  { emoji: '📊', title: 'Trend Detection in Extreme Rainfall', body: 'Using Bayesian and frequentist approaches for trend detection in rainfall extremes across temporal and spatial scales.' },
+  { emoji: '🌦️', title: 'Remote Sensing + ML', body: 'Integrating Remote Sensing and Transformer architectures for improved drought and flood prediction.' },
+  { emoji: '🔍', title: 'Neighborhood-based Trend Detection', body: 'A novel spatial method to enhance ability to detect trends in extreme rainfall. <em>(Submitted)</em>' },
+  { emoji: '📈', title: 'Effect of Minimum Interevent Time (MIT)', body: 'Evaluating the effect of MIT choices on regional DDF curves. <em>(Submitted)</em>' },
+  { emoji: '🎯', title: 'Spatially Independent Partial Duration Series', body: 'Using radar reflectivity and simplified storm motion to extract spatially independent rainfall maxima. <em>(AGU 2024, manuscript in prep)</em>' },
+  { emoji: '⛅', title: 'Rainfall Disaggregation with Transformers', body: 'Disaggregating daily rainfall to sub-daily (n-minute) intervals using transformer models. <em>(In preparation)</em>' },
+  { emoji: '🛰️', title: 'Rain-Gauge Network Density Impact', body: 'Studying how spatial/temporal resolution of rain-gauge networks affects DDF estimates. <em>(AGU & ASCE-EWRI 2024)</em>' },
+  { emoji: '🏙️', title: 'Urban Flood Modeling – Memphis', body: 'Simulated flood events in underserved South Memphis using PCSWMM; created flood maps & animations for city planning. Engaged 60+ residents.' },
+  { emoji: '📉', title: 'GCM Bias Correction & Downscaling', body: 'Compared statistical methods (QM, DQM, UQM) in Chilean basins under climate change scenarios.' },
+  { emoji: '🧘', title: 'Non-dualistic Vedanta', body: 'Investigating "Who is the Seer and what is actually Seen?" through personal experiments and Upanishadic frameworks.' },
+];
+
+const grid = document.getElementById('research-grid');
+researchData.forEach((r, i) => {
+  grid.innerHTML += `
+    <div class="research-card" data-aos="fade-up" data-aos-delay="${(i % 3) * 80}" onclick="toggleResearch(this)">
+      <div class="research-header">
+        <span class="research-emoji">${r.emoji}</span>
+        <span class="research-title">${r.title}</span>
+        <i class="fas fa-chevron-down toggle-icon"></i>
+      </div>
+      <div class="research-body"><div class="research-body-inner">${r.body}</div></div>
+    </div>`;
+});
+
+function toggleResearch(card) {
+  card.classList.toggle('active');
+}
+
+// ── T-REX GAME ─────────────────────────────────────────────────────
+const canvas = document.getElementById('trex-canvas');
+const ctx = canvas.getContext('2d');
+let trex = { x: 45, y: 90, vy: 0, width: 32, height: 32, jumping: false };
+let ground = 90;
+let gravity = 0.65;
+let obstacles = [];
+let gameFrame = 0;
+let score = 0;
+let gameOver = false;
+
+function drawTrex() {
+  const x = trex.x, y = trex.y;
+  ctx.fillStyle = '#0ea5e9';
+  ctx.beginPath();
+  ctx.ellipse(x + 14, y + 20, 13, 17, 0, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.beginPath();
+  ctx.moveTo(x + 2, y + 30);
+  ctx.lineTo(x - 12, y + 36);
+  ctx.lineTo(x + 3, y + 22);
+  ctx.closePath();
+  ctx.fill();
+  ctx.fillRect(x + 5, y + 37, 6, 10);
+  ctx.fillRect(x + 17, y + 37, 6, 10);
+  ctx.beginPath();
+  ctx.ellipse(x + 25, y + 10, 11, 9, 0, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.fillStyle = '#fff';
+  ctx.beginPath();
+  ctx.arc(x + 30, y + 9, 2.5, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.fillStyle = '#0a1628';
+  ctx.beginPath();
+  ctx.arc(x + 31, y + 9, 1.2, 0, Math.PI * 2);
+  ctx.fill();
+}
+function drawObstacles() {
+  ctx.fillStyle = '#10b981';
+  obstacles.forEach(ob => {
+    ctx.beginPath();
+    ctx.roundRect(ob.x, ob.y, ob.width, ob.height, 3);
+    ctx.fill();
+  });
+}
+function drawGround() {
+  ctx.strokeStyle = 'rgba(14,165,233,0.3)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(0, ground + trex.height + 1);
+  ctx.lineTo(canvas.width, ground + trex.height + 1);
+  ctx.stroke();
+}
+function resetGame() {
+  trex.y = ground; trex.vy = 0; trex.jumping = false;
+  obstacles = []; gameFrame = 0; score = 0; gameOver = false;
+}
+function gameLoop() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawGround(); drawTrex(); drawObstacles();
+  ctx.fillStyle = 'rgba(14,165,233,0.9)';
+  ctx.font = '13px JetBrains Mono, monospace';
+  ctx.fillText('SCORE: ' + score, 10, 20);
+  if (gameOver) {
+    ctx.fillStyle = '#f87171';
+    ctx.font = 'bold 20px Playfair Display, serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('GAME OVER', canvas.width/2, 55);
+    ctx.font = '12px JetBrains Mono, monospace';
+    ctx.fillStyle = 'rgba(148,163,184,0.9)';
+    ctx.fillText('SPACE / TAP TO RESTART', canvas.width/2, 80);
+    ctx.textAlign = 'left';
+    return;
+  }
+  trex.y += trex.vy;
+  trex.vy += gravity;
+  if (trex.y > ground) { trex.y = ground; trex.vy = 0; trex.jumping = false; }
+  if (gameFrame % 80 === 0) {
+    let h = 25 + Math.floor(Math.random() * 22);
+    obstacles.push({ x: canvas.width, y: ground + trex.height - h, width: 14 + Math.random()*16, height: h });
+  }
+  const spd = 4.5 + score / 800;
+  obstacles.forEach(ob => ob.x -= spd);
+  obstacles = obstacles.filter(ob => ob.x + ob.width > 0);
+  obstacles.forEach(ob => {
+    if (trex.x + 4 < ob.x + ob.width && trex.x + trex.width - 4 > ob.x && trex.y + trex.height > ob.y + 4) {
+      gameOver = true;
+    }
+  });
+  if (!gameOver) { score++; gameFrame++; requestAnimationFrame(gameLoop); }
+}
+function jump() {
+  if (!trex.jumping && !gameOver) { trex.vy = -12; trex.jumping = true; }
+  else if (gameOver) { resetGame(); requestAnimationFrame(gameLoop); }
+}
+window.addEventListener('keydown', e => { if (e.code === 'Space') { e.preventDefault(); jump(); } });
+canvas.addEventListener('touchstart', e => { e.preventDefault(); jump(); });
+canvas.addEventListener('mousedown', jump);
+resetGame(); requestAnimationFrame(gameLoop);
+</script>
 </body>
 </html>
