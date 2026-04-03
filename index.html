@@ -331,10 +331,10 @@
     .gallery-track-wrap { overflow: hidden; border-radius: var(--radius); position: relative; }
     #gallery-track { display: flex; transition: transform 0.6s cubic-bezier(.4,0,.2,1); }
     #gallery-track img {
-      flex: 0 0 50%; height: 300px; object-fit: contain;
+      flex: 0 0 50%; height: 400px; object-fit: contain;
       width: 100%;
       padding: 0 0.25rem;
-      background: #222; /* Optional: for letterboxing effect */
+      background: #0b0732; /* Optional: for letterboxing effect */
       display: block;
     }
     @media (max-width: 600px) { #gallery-track img { flex: 0 0 100%; } }
@@ -586,23 +586,26 @@
     <div class="stat-grid">
       <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
         <div class="stat-num" data-target="150">0</div>
-        <div class="stat-label">Projects Managed</div>
+        <div class="stat-label">Irrigation & Disaster Management Projects Managed</div>
       </div>
       <div class="stat-card" data-aos="fade-up" data-aos-delay="150">
-        <div class="stat-num" data-target="6">0</div>
-        <div class="stat-label">Years Gov. Service</div>
+        <div class="stat-num" data-target="5+">0</div>
+        <div class="stat-label">Years Professional Service</div>
       </div>
       <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
-        <div class="stat-num" data-target="60">0</div>
-        <div class="stat-label">Residents Educated</div>
+        <div class="stat-num" data-target="60+">0</div>
+        <div class="stat-label">Residents Trained</div>
       </div>
       <div class="stat-card" data-aos="fade-up" data-aos-delay="250">
-        <div class="stat-num" data-target="10">0</div>
+        <div class="stat-num" data-target="10+">0</div>
         <div class="stat-label">Research Projects</div>
       </div>
       <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
         <div class="stat-num" data-target="5">0</div>
         <div class="stat-label">Master Plans Developed</div>
+      <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="stat-num" data-target="2">0</div>
+        <div class="stat-label">Successful Project Proposals</div>
       </div>
     </div>
   </div>
@@ -850,13 +853,13 @@ const researchData = [
   { emoji: '📊', title: 'Extracting hazard signal from noisy rainfall field', body: 'Proposed neighborhood based method to detect spatially coherent trend in short-duration extreme rainfall.' },
   { emoji: '🌦️', title: 'Remote Sensing + ML', body: 'Integrating Remote Sensing and Transformer architectures for improved drought and flood prediction.' },
   { emoji: '🔍', title: 'Neighborhood-based Trend Detection', body: 'A novel spatial method to enhance ability to detect trends in extreme rainfall. <em>(Submitted)</em>' },
-  { emoji: '📈', title: 'Effect of Minimum Interevent Time (MIT)', body: 'Evaluating the effect of MIT choices on regional DDF curves. <em>(Submitted)</em>' },
-  { emoji: '🎯', title: 'Spatially Independent Partial Duration Series', body: 'Using radar reflectivity and simplified storm motion to extract spatially independent rainfall maxima. <em>(AGU 2024, manuscript in prep)</em>' },
+  { emoji: '📈', title: 'Effect of Minimum Interevent Time (MIT)', body: 'Evaluating the effect of MIT choices on regional DDF curves. <em>(under review)</em>' },
+  { emoji: '🎯', title: 'Spatially Independent Partial Duration Series', body: 'Using radar reflectivity and simplified storm motion to extract spatially independent rainfall maxima. <em>(AGU 2024, under review)</em>' },
   { emoji: '⛅', title: 'Rainfall Disaggregation with Transformers', body: 'Disaggregating daily rainfall to sub-daily (n-minute) intervals using transformer models. <em>(In preparation)</em>' },
   { emoji: '🛰️', title: 'Rain-Gauge Network Density Impact', body: 'Studying how spatial/temporal resolution of rain-gauge networks affects DDF estimates. <em>(AGU & ASCE-EWRI 2024)</em>' },
   { emoji: '🏙️', title: 'Urban Flood Modeling – Memphis', body: 'Simulated flood events in underserved South Memphis using PCSWMM; created flood maps & animations for city planning. Engaged 60+ residents.' },
   { emoji: '📉', title: 'GCM Bias Correction & Downscaling', body: 'Compared statistical methods (QM, DQM, UQM) in Chilean basins under climate change scenarios.' },
-  { emoji: '🧘', title: 'Non-dualistic Vedanta', body: 'Investigating "Who is the Seer and what is actually Seen?" through personal experiments and Upanishadic frameworks.' },
+  { emoji: '🧘', title: 'Vedanta & Sarvamnaya Tantra', body: 'Investigating "Who is the Seer and what is actually Seen?" through personal experiments and Upanishadic frameworks.' },
 ];
 
 const grid = document.getElementById('research-grid');
