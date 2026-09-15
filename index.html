@@ -11,6 +11,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <!-- AOS (Animate on Scroll) -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="publications.css">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
@@ -117,7 +118,7 @@
 
     .hero-name {
       font-family: var(--ff-display);
-      font-size: clamp(3rem, 8vw, 7rem);
+      font-size: clamp(2.6rem, 7vw, 6rem);
       font-weight: 900;
       line-height: 1.05;
       background: linear-gradient(135deg, #fff 30%, var(--teal) 70%, var(--cyan) 100%);
@@ -377,6 +378,47 @@
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--navy); }
     ::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
+
+    /* ─── ACADEMIC CV REFINEMENT ───────────────────────────────── */
+    body { font-size: 18px; line-height: 1.75; }
+    html, body { overflow-x: clip; }
+    section { padding: 7rem 1.5rem; }
+    .section-title { font-size: clamp(2.2rem, 4vw, 3.6rem); }
+    .section-label { font-size: 0.82rem; }
+    .cv-lead { max-width: 780px; color: var(--light); font-size: clamp(1.15rem, 2vw, 1.35rem); line-height: 1.8; }
+    .hero-tag { background: transparent; border: 0; padding: 0; font-size: 0.9rem; }
+    .hero-chips { gap: 0.35rem 1.3rem; }
+    .chip { background: transparent; border: 0; border-radius: 0; padding: 0; color: var(--muted); font-size: 0.95rem; }
+    .chip:hover { background: transparent; border-color: transparent; transform: none; color: var(--white); }
+    .academic-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 3rem; }
+    .academic-entry { padding: 1.2rem 0 1.4rem; border-top: 1px solid var(--border); }
+    .academic-year { color: var(--teal); font-family: var(--ff-mono); font-size: 0.82rem; letter-spacing: 0.08em; }
+    .academic-entry h3 { color: var(--white); font-size: 1.25rem; margin: 0.25rem 0; }
+    .academic-entry p { color: var(--muted); font-size: 1rem; margin: 0; }
+    .interest-list, .skill-list { display: flex; flex-wrap: wrap; gap: 0.7rem 1.5rem; list-style: none; padding: 0; }
+    .interest-list li, .skill-list li { color: var(--light); font-size: 1.08rem; }
+    .interest-list li::before { content: '—'; color: var(--teal); margin-right: 0.55rem; }
+    .cv-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; }
+    .cv-subtitle { color: var(--white); font-family: var(--ff-display); font-size: 1.55rem; margin-bottom: 1rem; }
+    .cv-list { list-style: none; padding: 0; margin: 0; }
+    .cv-list li { padding: 0.85rem 0; border-top: 1px solid var(--border); color: var(--light); font-size: 1rem; }
+    .cv-list strong { color: var(--white); }
+    .cv-list span { color: var(--muted); }
+    .plain-link { color: var(--teal); text-decoration: underline; text-decoration-color: rgba(14,165,233,0.35); text-underline-offset: 0.2em; }
+    .plain-link:hover { color: var(--white); }
+    .publication-entry p { font-size: 1rem; }
+    #photo, #trex-game { display: none; }
+    #about { overflow-x: clip; }
+    .about-grid, .publication-entry, .cv-columns, .academic-grid { min-width: 0; }
+    .about-portrait { max-width: 100%; min-width: 0; }
+    .publication-entry a { white-space: normal; overflow-wrap: anywhere; }
+    @media (max-width: 900px) { .about-grid { grid-template-columns: minmax(0, 1fr); } }
+    @media (max-width: 700px) {
+      section { padding: 5rem 1rem; }
+      .academic-grid, .cv-columns { grid-template-columns: 1fr; gap: 0; }
+      .cv-lead { font-size: 1.1rem; }
+      .publication-entry p { font-size: 0.98rem; }
+    }
   </style>
 </head>
 <body>
@@ -391,13 +433,16 @@
     <button class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
-      <li><a href="#photo">Gallery</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#research-profile">Research Interests</a></li>
+      <li><a href="#research">Current Research</a></li>
+      <li><a href="#proposals">Proposals</a></li>
+      <li><a href="#publications">Publications</a></li>
       <li><a href="#awards">Awards</a></li>
-      <li><a href="#impacts">Impact</a></li>
-      <li><a href="#research">Research</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#service">Service</a></li>
       <li><a href="#cv">CV</a></li>
-      <li><a href="#trex-game">🦕 Game</a></li>
     </ul>
   </div>
 </nav>
@@ -405,18 +450,18 @@
 <!-- ─── HERO ────────────────────────────────────────────────── -->
 <section id="hero">
   <div class="container-xl" style="position:relative;z-index:1">
-    <div class="hero-tag"><i class="fas fa-water"></i> Water Resources Engineer & Researcher</div>
-    <h1 class="hero-name">Nischal Kafle</h1>
+    <div class="hero-tag"><i class="fas fa-water"></i> Water Resources Engineer</div>
+    <h1 class="hero-name">NISCHAL KAFLE, PhD</h1>
     <p class="hero-title">
-      <strong>Ph.D. Candidate</strong> in Civil Engineering · University of Memphis<br>
-      From the high mountains of <strong>Nepal 🇳🇵</strong>
+      Researcher in hydroclimatic extremes and water resources engineering<br>
+      <strong>The University of Memphis</strong> · Memphis, Tennessee
     </p>
     <div class="hero-chips">
-      <div class="chip">🌧️ Stochastic Hydrology</div>
-      <div class="chip">🧠 Machine Learning</div>
-      <div class="chip">🐍 Python / Open-Source</div>
-      <div class="chip">🛰️ Remote Sensing</div>
-      <div class="chip">📊 Extreme Value Analysis</div>
+      <div class="chip">Hydroclimatic Extremes</div>
+      <div class="chip">Urban Hydrology</div>
+      <div class="chip">Climate Change Impacts</div>
+      <div class="chip">Scientific Software</div>
+      <div class="chip">AI for Water Resources</div>
     </div>
     <div class="hero-cta">
       <a href="https://scholar.google.com/citations?user=5x8WK2EAAAAJ&hl=en" target="_blank" class="btn-primary-glow">
@@ -445,8 +490,8 @@
     </div>
     <div class="about-grid">
       <div data-aos="fade-right">
-        <p style="color:var(--light);font-size:1.05rem;margin-bottom:1.25rem;">
-          I'm a Ph.D. candidate in Civil Engineering at the University of Memphis, specializing in
+        <p class="cv-lead" style="margin-bottom:1.25rem;">
+          I am a water resources engineer and researcher specializing in
           <strong style="color:var(--teal)">stochastic hydrology</strong>,
           <strong style="color:var(--teal)">meteorology</strong>, and engineering applications. My research improves
           modeling of short-duration extreme rainfall for urban infrastructure design, climate resilience,
@@ -472,18 +517,66 @@
         </div>
       </div>
       <div data-aos="fade-left" class="about-portrait glass-card" style="padding:1.5rem">
-        <div style="font-size:5rem;text-align:center;margin-bottom:1rem;">🏔️</div>
-        <div style="text-align:center;color:var(--muted);font-size:0.85rem;line-height:1.7">
-          <p>🎓 Ph.D. Candidate — University of Memphis</p>
-          <p>🇳🇵 Originally from Nepal, now based in Memphis, TN</p>
-          <p>🧑‍💻 Open-source contributor — <a href="https://github.com/Nischalcs50/nsEVDx" target="_blank" style="color:var(--teal)">nsEVDx</a></p>
-          <p>🌍 Ex Government Engineer — Ministry of Irrigation, Nepal</p>
-          <!--<p>🤝 ADB · World Bank partner projects</p>-->
+        <div style="text-align:left;color:var(--muted);font-size:1rem;line-height:1.8">
+          <p><strong style="color:var(--light)">Current focus</strong><br>Extreme precipitation, uncertainty, and resilient water infrastructure</p>
+          <p><strong style="color:var(--light)">Open-source work</strong><br><a href="https://github.com/Nischalcs50/nsEVDx" target="_blank" style="color:var(--teal)">nsEVDx</a>, a Python library for extreme value modeling</p>
+          <p><strong style="color:var(--light)">Professional background</strong><br>Water resources engineering and public infrastructure in Nepal</p>
           <p style="margin-top:1rem;color:var(--teal);font-family:var(--ff-mono);font-size:0.8rem">
             "Always curious. Always computing."
           </p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── EDUCATION ─────────────────────────────────────────────── -->
+<section id="education">
+  <div class="container-xl">
+    <div data-aos="fade-up">
+      <div class="section-label">Education</div>
+      <h2 class="section-title">Education</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="academic-grid" data-aos="fade-up">
+      <div class="academic-entry"><div class="academic-year">2026</div><h3>PhD in Engineering Science</h3><p>The University of Memphis, Memphis, Tennessee<br>Dissertation: “Rain-gauge Network Effects on the Uncertainty and Trends in Short-Duration Extreme Precipitation”<br>Advisor: Prof. Claudio I. Meier</p></div>
+      <div class="academic-entry"><div class="academic-year">2024</div><h3>MS in Civil Engineering, Water Resources</h3><p>The University of Memphis, Memphis, Tennessee<br>GPA: 3.95</p></div>
+      <div class="academic-entry"><div class="academic-year">2014</div><h3>BS in Civil Engineering</h3><p>Tribhuvan University, IOE Central Campus, Pulchowk, Nepal<br>Equivalent GPA: 3.92</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── RESEARCH PROFILE ──────────────────────────────────────── -->
+<section id="research-profile" style="background:linear-gradient(180deg,transparent,rgba(14,165,233,0.035),transparent)">
+  <div class="container-xl">
+    <div data-aos="fade-up">
+      <div class="section-label">Research Interests</div>
+      <h2 class="section-title">Questions at the <em>Water–Climate Boundary</em></h2>
+      <div class="divider"></div>
+    </div>
+    <ul class="interest-list" data-aos="fade-up">
+      <li>Hydroclimatic extremes</li>
+      <li>Stochastic hydrology</li>
+      <li>Urban hydrology</li>
+      <li>Climate change impacts</li>
+      <li>Hydrologic and hydrodynamic modeling</li>
+      <li>Software development</li>
+      <li>AI and machine learning for water resources</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ─── PROPOSALS ─────────────────────────────────────────────── -->
+<section id="proposals">
+  <div class="container-xl">
+    <div data-aos="fade-up">
+      <div class="section-label">Research Development</div>
+      <h2 class="section-title">Proposal <em>Activity</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="cv-columns" data-aos="fade-up">
+      <div><h3 class="cv-subtitle">Funded Research</h3><ul class="cv-list"><li><strong>2024 · TDEC</strong><br><span>HydroDisconnect Framework for Effective Placement of Decentralized Stormwater Control Measures. Role: Proposal development; PI: Prof. C. Meier. Awarded $500k.</span></li></ul></div>
+      <div><h3 class="cv-subtitle">Submitted Proposals</h3><ul class="cv-list"><li><strong>2026 · TDOT</strong><br><span>Utilization of Open-Source Data to Monitor Slope Movement via AI or Machine Learning in a GIS Environment and Corridor Risk Prioritization. Role: Co-PI; budget: $259k; under review.</span></li><li><strong>2025 · NASA NSPIRES</strong><br><span>Leveraging the HydroDisconnect Framework for More Nuanced Characterization of Hydrologic Variables and Their Influence on Hydrologic Response. Not selected.</span></li></ul></div>
     </div>
   </div>
 </section>
@@ -575,39 +668,113 @@
   </div>
 </section>
 
-<!-- ─── IMPACTS ───────────────────────────────────────────────── -->
-<section id="impacts">
+<!-- ─── PUBLICATIONS & PRESENTATIONS ─────────────────────────── -->
+<section id="publications" aria-labelledby="publications-title">
   <div class="container-xl">
     <div data-aos="fade-up">
-      <div class="section-label">Impact</div>
-      <h2 class="section-title">By the <em>Numbers</em></h2>
+      <div class="section-label">Scholarship</div>
+      <h2 class="section-title" id="publications-title">Publications <em>&amp; Presentations</em></h2>
       <div class="divider"></div>
+      <p class="publications-intro">A selected record of research, software, reports, and scholarly presentations.</p>
     </div>
-    <div class="stat-grid">
-      <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
-        <div class="stat-num" data-target="150">0</div>
-        <div class="stat-label">Irrigation & Disaster Management Projects Managed</div>
-      </div>
-      <div class="stat-card" data-aos="fade-up" data-aos-delay="150">
-        <div class="stat-num" data-target="5+">0</div>
-        <div class="stat-label">Years Professional Service</div>
-      </div>
-      <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
-        <div class="stat-num" data-target="60+">0</div>
-        <div class="stat-label">Residents Trained</div>
-      </div>
-      <div class="stat-card" data-aos="fade-up" data-aos-delay="250">
-        <div class="stat-num" data-target="10+">0</div>
-        <div class="stat-label">Research Projects</div>
-      </div>
-      <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
-        <div class="stat-num" data-target="5">0</div>
-        <div class="stat-label">Master Plans Developed</div>
-      <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
-        <div class="stat-num" data-target="2">0</div>
-        <div class="stat-label">Successful Project Proposals</div>
+
+    <div class="publication-tools" role="region" aria-label="Publication filters" data-aos="fade-up">
+      <label class="publication-search">
+        <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+        <span class="visually-hidden">Search publications</span>
+        <input id="publication-search" type="search" placeholder="Search title, author, venue, or year" autocomplete="off">
+      </label>
+      <label class="publication-sort">
+        <span>Sort</span>
+        <select id="publication-sort" aria-label="Sort publications">
+          <option value="newest">Newest first</option>
+          <option value="oldest">Oldest first</option>
+        </select>
+      </label>
+      <div class="publication-actions" role="group" aria-label="Accordion controls">
+        <button type="button" class="publication-control" id="show-all-publications"><i class="fas fa-expand" aria-hidden="true"></i> Show all</button>
+        <button type="button" class="publication-control" id="collapse-all-publications"><i class="fas fa-compress" aria-hidden="true"></i> Collapse all</button>
       </div>
     </div>
+
+    <div class="publication-summary" aria-live="polite">
+      <span id="publication-result-count">18 items</span>
+      <span class="publication-summary-rule" aria-hidden="true"></span>
+      <div id="publication-category-counts" class="publication-category-counts"></div>
+    </div>
+
+    <div class="publication-groups" id="publication-list">
+      <div class="publication-group publication-group-featured" data-category="Published" data-always-open>
+        <div class="publication-group-heading"><h3><i class="fas fa-check-circle" aria-hidden="true"></i> Published</h3><span class="publication-group-count">2</span></div>
+        <div class="publication-items">
+          <article class="publication-entry publication-card" id="pub-robustness-regionally-derived" data-category="Published" data-status="Published" data-year="2026">
+            <div class="publication-card-meta"><span class="publication-badge badge-published">Published</span><span class="publication-year">2026</span></div>
+            <p><strong>Kafle, N.</strong>, Dell’Aira, F., Chadwick, C., &amp; Meier, C. I. (2026). Robustness of Regionally Derived, Short-Duration Rainfall Depth-Duration-Frequency Estimates to the Choice of Minimum Interevent Time: Evidence Across Climates, Rain-gauge Densities, and Regionalization Approaches. <em>Journal of Hydrologic Engineering</em>. <a href="https://doi.org/10.1061/JHYEFF.HEENG-6729" target="_blank" rel="noopener" aria-label="Open DOI for Robustness of Regionally Derived paper"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> https://doi.org/10.1061/JHYEFF.HEENG-6729</a></p>
+          </article>
+          <article class="publication-entry publication-card" id="pub-nsevdx" data-category="Published" data-status="Published" data-year="2026">
+            <div class="publication-card-meta"><span class="publication-badge badge-published">Published</span><span class="publication-year">2026</span></div>
+            <p><strong>Kafle, N.</strong> &amp; Meier, C.I. (2026). nsEVDx: A Python Library for Stationary and Non-stationary Extreme Value Modeling. <em>Journal of Open Source Software</em>, 11(125),11187, <a href="https://doi.org/10.21105/joss.11187" target="_blank" rel="noopener" aria-label="Open DOI for nsEVDx paper"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> https://doi.org/10.21105/joss.11187</a> (open-source package with <span class="publication-metric"><i class="fas fa-download" aria-hidden="true"></i> 5,000+ downloads</span>)</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="publication-group publication-group-featured" data-category="Accepted / In Press" data-always-open>
+        <div class="publication-group-heading"><h3><i class="fas fa-hourglass-half" aria-hidden="true"></i> Accepted / In Press</h3><span class="publication-group-count">1</span></div>
+        <div class="publication-items">
+          <article class="publication-entry publication-card" id="pub-spatial-independence" data-category="Accepted / In Press" data-status="Accepted" data-year="2025">
+            <div class="publication-card-meta"><span class="publication-badge badge-accepted">Accepted</span><span class="publication-year">2025</span></div>
+            <p><strong>Kafle, N.</strong> &amp; Meier, C. I. (2025). A Simple Method for Enhancing the Spatial Independence of Regional Partial Duration Series in Extreme, Short-Duration Rainfall Frequency Analyses. <em>Authorea Preprints</em>. <a href="https://doi.org/10.22541/essoar.176281288.81066358/v1" target="_blank" rel="noopener" aria-label="Open DOI for spatial independence paper"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> https://doi.org/10.22541/essoar.176281288.81066358/v1</a></p><p class="publication-note">Accepted by Stochastic Environmental Research &amp; Risk Assessment</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="publication-group publication-group-featured" data-category="Under Review" data-always-open>
+        <div class="publication-group-heading"><h3><i class="fas fa-pen-to-square" aria-hidden="true"></i> Under Review</h3><span class="publication-group-count">1</span></div>
+        <div class="publication-items">
+          <article class="publication-entry publication-card" id="pub-rain-gauge-resolution" data-category="Under Review" data-status="Under Review" data-year="2026">
+            <div class="publication-card-meta"><span class="publication-badge badge-review">Under Review</span><span class="publication-year">2026</span></div>
+            <p><strong>Kafle, N.</strong>, Dell’Aira, F., Burnette, D.J., &amp; Meier, C.I. (2026). Space and Time Resolution of a Rain-gauge Network: An Underreported Source of Uncertainty in Extreme Precipitation Estimates</p><p class="publication-note">Under Review in Water Resources Research</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="publication-accordion" data-category="In Preparation">
+        <button class="publication-accordion-toggle" type="button" aria-expanded="false" aria-controls="publication-in-preparation"><span><i class="fas fa-flask" aria-hidden="true"></i> In Preparation</span><span class="publication-accordion-side"><span class="publication-group-count">1</span><i class="fas fa-chevron-down accordion-chevron" aria-hidden="true"></i></span></button>
+        <div class="publication-accordion-panel" id="publication-in-preparation" hidden><article class="publication-entry" id="pub-neighborhood-trends" data-category="In Preparation" data-status="In Preparation" data-year="2026"><div class="publication-card-meta"><span class="publication-badge badge-preparation">In Preparation</span><span class="publication-year">2026</span></div><p><strong>Kafle, N.</strong>, Peleg, N., Chavez-Demoulin, V., Meier, C.I. (2026). Using a Neighborhood-Based Approach to Overcome the Limitations of Point-Based Trend Analyses in Extreme Precipitation Events.</p></article></div>
+      </div>
+
+      <div class="publication-accordion" data-category="Technical Reports">
+        <button class="publication-accordion-toggle" type="button" aria-expanded="false" aria-controls="publication-technical-reports"><span><i class="fas fa-file-lines" aria-hidden="true"></i> Technical Reports</span><span class="publication-accordion-side"><span class="publication-group-count">1</span><i class="fas fa-chevron-down accordion-chevron" aria-hidden="true"></i></span></button>
+        <div class="publication-accordion-panel" id="publication-technical-reports" hidden><article class="publication-entry" id="report-urban-creeks" data-category="Technical Reports" data-status="Technical Report" data-year="2024"><div class="publication-card-meta"><span class="publication-badge badge-report">Technical Report</span><span class="publication-year">2024</span></div><p>Meier, C.I., Dell’Aira, F., <strong>Kafle, N.</strong>, and Burnette, D.J. (2024). Updating Equations for Peak Flow Estimation in Urban Creeks and Streams of Tennessee (Part 1). Research final report from the University of Memphis, sponsored by the Tennessee Department of Transportation Long Range Planning Research Office &amp; Federal Highway Administration</p></article></div>
+      </div>
+
+      <div class="publication-accordion" data-category="Invited Presentations">
+        <button class="publication-accordion-toggle" type="button" aria-expanded="false" aria-controls="publication-invited"><span><i class="fas fa-microphone" aria-hidden="true"></i> Invited Presentations</span><span class="publication-accordion-side"><span class="publication-group-count">1</span><i class="fas fa-chevron-down accordion-chevron" aria-hidden="true"></i></span></button>
+        <div class="publication-accordion-panel" id="publication-invited" hidden><article class="publication-entry" id="presentation-ams-nwa" data-category="Invited Presentations" data-status="Presentation" data-year="2025"><div class="publication-card-meta"><span class="publication-badge badge-presentation">Presentation</span><span class="publication-year">2025</span></div><p><strong>Kafle, N.</strong> (2025). Uncertainties and Trends in Short-Duration Extreme Precipitation: Implications for Urban Pluvial Flooding. <em>Invited Presentation</em> at the AMS–NWA Memphis Chapter, November 18, 2025, Agricenter International, Memphis, TN</p></article></div>
+      </div>
+
+      <div class="publication-accordion" data-category="Conferences">
+        <button class="publication-accordion-toggle" type="button" aria-expanded="false" aria-controls="publication-conferences"><span><i class="fas fa-users" aria-hidden="true"></i> Conferences</span><span class="publication-accordion-side"><span class="publication-group-count">13</span><i class="fas fa-chevron-down accordion-chevron" aria-hidden="true"></i></span></button>
+        <div class="publication-accordion-panel" id="publication-conferences" hidden>
+          <div class="publication-items">
+            <article class="publication-entry" id="conf-neighborhood-framework" data-category="Conferences" data-status="Conference" data-year="2026"><div class="publication-card-meta"><span class="publication-badge badge-conference">Conference</span><span class="publication-year">2026</span></div><p><strong>Kafle, N.</strong>, Peleg, N., &amp; Meier, C. I. (2026). Detecting Trends in Short-Duration Extreme Rainfall: A Neighborhood-Based Framework Overcomes Limitations of Point-Based Analyses. ASCE-EWRI 2026</p></article>
+            <article class="publication-entry" id="conf-hydrodisconnect-2026" data-category="Conferences" data-status="Conference" data-year="2026"><div class="publication-card-meta"><span class="publication-badge badge-conference">Conference</span><span class="publication-year">2026</span></div><p>Dell'Aira, F., <strong>Kafle, N.</strong>, Hathaway, J., &amp; Meier, C. I. (2026). Connectivity-Informed Siting of Urban Stormwater Control Measures: The HydroDisconnect Approach. ASCE-EWRI 2026.</p></article>
+            <article class="publication-entry" id="conf-neighborhood-method" data-category="Conferences" data-status="Conference" data-year="2025"><div class="publication-card-meta"><span class="publication-badge badge-conference">Conference</span><span class="publication-year">2025</span></div><p><strong>Kafle, N.</strong>, Peleg, N., &amp; Meier, C. I. (2025, December). Detecting Spatially Consistent Trends in Sub-Hourly Extreme Rainfall Using a Neighborhood-Based Method. In AGU Fall Meeting Abstracts (Vol. 2025, pp. H13G-07). <a href="https://ui.adsabs.harvard.edu/abs/2025AGUFMH13G...07K/abstract" target="_blank" rel="noopener" aria-label="Open AGU abstract for neighborhood method"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> https://ui.adsabs.harvard.edu/abs/2025AGUFMH13G...07K/abstract</a></p></article>
+            <article class="publication-entry" id="conf-hydrodisconnect-2025" data-category="Conferences" data-status="Conference" data-year="2025"><div class="publication-card-meta"><span class="publication-badge badge-conference">Conference</span><span class="publication-year">2025</span></div><p>Dell'Aira, F., <strong>Kafle, N.</strong>, Hathaway, J., &amp; Meier, C. I. (2025, December). Connectivity-Informed Siting of Urban Stormwater Control Measures: The HydroDisconnect Approach. AGU Fall Meeting Abstracts (Vol. 2025, pp. IN14A-05). <a href="https://ui.adsabs.harvard.edu/abs/2025AGUFMIN14A..05D/abstract" target="_blank" rel="noopener" aria-label="Open AGU abstract for HydroDisconnect"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> https://ui.adsabs.harvard.edu/abs/2025AGUFMIN14A..05D/abstract</a></p></article>
+            <article class="publication-entry" id="conf-spatial-independence" data-category="Conferences" data-status="Conference" data-year="2025"><div class="publication-card-meta"><span class="publication-badge badge-conference">Conference</span><span class="publication-year">2025</span></div><p><strong>Kafle, N.</strong> &amp; Meier, C.I. (2025, May). Ensuring spatial independence of rainfall maxima in partial-duration-based regional frequency analyses*. <em>ASCE-EWRI 2025</em></p></article>
+            <article class="publication-entry" id="conf-trend-methodologies" data-category="Conferences" data-status="Conference" data-year="2025"><div class="publication-card-meta"><span class="publication-badge badge-conference">Conference</span><span class="publication-year">2025</span></div><p><strong>Kafle, N.</strong> &amp; Meier, C.I. (2025, May). Evaluating Methodologies for Detecting Trends in Short-Duration Extreme Rainfall in the Southeastern United States*. <em>ASCE-EWRI 2025</em></p></article>
+            <article class="publication-entry" id="conf-spatially-independent-2024" data-category="Conferences" data-status="Conference" data-year="2024"><div class="publication-card-meta"><span class="publication-badge badge-conference">Conference</span><span class="publication-year">2024</span></div><p><strong>Kafle, N.</strong> &amp; Meier, C. I. (2024, December). A novel method for identifying spatially independent rainfall maxima in regional frequency analyses using partial duration series. <em>AGU Fall Meeting Abstracts</em>, 2024, A51L-1836. <a href="https://ui.adsabs.harvard.edu/abs/2024AGUFMA51L.1836K" target="_blank" rel="noopener" aria-label="Open AGU abstract for spatially independent rainfall maxima"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> https://ui.adsabs.harvard.edu/abs/2024AGUFMA51L.1836K</a></p></article>
+            <article class="publication-entry" id="conf-interevent-time" data-category="Conferences" data-status="Conference" data-year="2024"><div class="publication-card-meta"><span class="publication-badge badge-conference">Conference</span><span class="publication-year">2024</span></div><p>Meier, C. I., &amp; <strong>Kafle, N.</strong> (2024, December). Does the choice of minimum interevent time affect regionally derived depth-duration-frequency values? <em>AGU Fall Meeting Abstracts</em>, 2024, H23I-1117. <a href="https://ui.adsabs.harvard.edu/abs/2024AGUFMH23I.1117M" target="_blank" rel="noopener" aria-label="Open AGU abstract for minimum interevent time"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> https://ui.adsabs.harvard.edu/abs/2024AGUFMH23I.1117M</a></p></article>
+            <article class="publication-entry" id="conf-rain-gauge-resolution" data-category="Conferences" data-status="Conference" data-year="2024"><div class="publication-card-meta"><span class="publication-badge badge-conference">Conference</span><span class="publication-year">2024</span></div><p><strong>Kafle, N.</strong>, Dell'Aira, F., Burnette, D. J., &amp; Meier, C. I. (2024, December). How does the low-resolution of the US rain-gauge network affect the uncertainty of regionally derived depth-duration-frequency estimates? <em>AGU Fall Meeting Abstracts</em>, 2024, H23I-1115. <a href="https://ui.adsabs.harvard.edu/abs/2024AGUFMH23I.1115K" target="_blank" rel="noopener" aria-label="Open AGU abstract for rain gauge resolution"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> https://ui.adsabs.harvard.edu/abs/2024AGUFMH23I.1115K</a></p></article>
+            <article class="publication-entry" id="conf-extreme-precipitation" data-category="Conferences" data-status="Conference" data-year="2024"><div class="publication-card-meta"><span class="publication-badge badge-conference">Conference</span><span class="publication-year">2024</span></div><p><strong>Kafle, N.</strong>, Dell'Aira, F., Burnette, D.J., &amp; Meier, C. I. (2024, April). Extreme Precipitation in the Southeastern United States: Are We Underestimating Depth-Duration-Frequency Values because of Low Rain Gauge Density and Temporal Resolution? TN AWRA 33rd Tennessee Water Resources Symposium (1B Flooding)</p></article>
+            <article class="publication-entry" id="conf-hershfield" data-category="Conferences" data-status="Conference" data-year="2024"><div class="publication-card-meta"><span class="publication-badge badge-conference">Conference</span><span class="publication-year">2024</span></div><p>Meier, C., Muñoz-Proboste, P., Marasini, A., <strong>Kafle, N.</strong>, and Dell'Aira, F.: Attributing the Variability of Hershfield Rainfall Sampling Adjustment Factors at Sub-Hourly Durations, EGU General Assembly 2024, Vienna, Austria, 14–19 Apr 2024, EGU24-13420, <a href="https://doi.org/10.5194/egusphere-egu24-13420" target="_blank" rel="noopener" aria-label="Open DOI for Hershfield rainfall presentation"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> https://doi.org/10.5194/egusphere-egu24-13420</a>, 2024</p></article>
+            <article class="publication-entry" id="conf-hershfield-factors" data-category="Conferences" data-status="Conference" data-year="2022"><div class="publication-card-meta"><span class="publication-badge badge-conference">Conference</span><span class="publication-year">2022</span></div><p><strong>Kafle, N.</strong>, Dell'Aira, F., Burnette, D.J., &amp; Meier, C. I. (2022, December). Hershfield Factors for Extreme Precipitation: Variability and a Proposal for a Unified Definition. SEDHYD-2023 (8A Frequency and Design Storm Analysis III)</p></article>
+            <article class="publication-entry" id="conf-global-flood-frequency" data-category="Conferences" data-status="Conference" data-year="2022"><div class="publication-card-meta"><span class="publication-badge badge-conference">Conference</span><span class="publication-year">2022</span></div><p><strong>Kafle, N.</strong>, Dell'Aira, F., Cancelliere, A., &amp; Meier, C. I. (2022, December). A shift in paradigm from regional to global flood frequency analysis. AGU Fall Meeting Abstracts, 2022, H52I-0567. <a href="https://ui.adsabs.harvard.edu/abs/2022AGUFM.H52I0567K" target="_blank" rel="noopener" aria-label="Open AGU abstract for global flood frequency analysis"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> https://ui.adsabs.harvard.edu/abs/2022AGUFM.H52I0567K</a></p></article>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="publication-empty" id="publication-empty" hidden>No publications match that search.</p>
   </div>
 </section>
 
@@ -635,6 +802,14 @@
       <div class="divider"></div>
     </div>
     <div class="timeline" data-aos="fade-up">
+      <div class="timeline-item">
+        <div class="timeline-date">SEP 2026 — PRESENT</div>
+        <div class="timeline-role">Postdoctoral Scholar</div>
+        <div class="timeline-org">The University of Memphis, Tennessee · USGS-funded research</div>
+        <ul class="timeline-list">
+          <li>Investigating the mechanisms driving decreasing high-flow magnitude and frequency across increasingly urbanized watersheds</li>
+        </ul>
+      </div>
       <div class="timeline-item">
         <div class="timeline-date">AUG 2021 — PRESENT</div>
         <div class="timeline-role">Ph.D. Research Assistant</div>
@@ -673,6 +848,52 @@
   </div>
 </section>
 
+<!-- ─── TEACHING, SKILLS & SERVICE ────────────────────────────── -->
+<section id="teaching" style="background:linear-gradient(180deg,transparent,rgba(14,165,233,0.035),transparent)">
+  <div class="container-xl">
+    <div data-aos="fade-up">
+      <div class="section-label">Teaching & Tools</div>
+      <h2 class="section-title">Teaching, <em>Skills</em> & Practice</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="cv-columns" data-aos="fade-up">
+      <div>
+        <h3 class="cv-subtitle">Teaching Experience</h3>
+        <ul class="cv-list">
+          <li><strong>2025 · CIVIL 3322, Mechanics of Materials</strong><br><span>Teaching Assistant, University of Memphis</span></li>
+          <li><strong>2024 · CIVIL 4195, Professional Practice</strong><br><span>Teaching Assistant, University of Memphis</span></li>
+          <li><strong>2024 · CIVIL 4199, Design Lab</strong><br><span>Teaching Assistant, University of Memphis</span></li>
+          <li><strong>2023 · CIVIL 2101, Visualization Lab</strong><br><span>Teaching Assistant, University of Memphis</span></li>
+          <li><strong>2018 · QGIS Training Seminar</strong><br><span>Instructor for government engineers, Department of Irrigation, Nepal</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="cv-subtitle">Technical Skills</h3>
+        <ul class="cv-list">
+          <li><strong>Modeling</strong><br><span>SWMM, PCSWMM, HEC-RAS, HEC-HMS, OpenFOAM, ParaView</span></li>
+          <li><strong>Programming</strong><br><span>Python, C/C++, R, MATLAB, Bash, HTML, CSS, JavaScript</span></li>
+          <li><strong>Statistics and AI</strong><br><span>Extreme value theory, Bayesian statistics, MCMC, time-series modeling, PyTorch, JAX, PyMC, NumPyro</span></li>
+          <li><strong>Research tools</strong><br><span>HPC, Unix/Linux, Google Earth Engine, Git, GitHub, LaTeX, Streamlit, CI/CD</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="service">
+  <div class="container-xl">
+    <div data-aos="fade-up">
+      <div class="section-label">Service & Outreach</div>
+      <h2 class="section-title">Services</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="cv-columns" data-aos="fade-up">
+      <div><ul class="cv-list"><li><strong>2026–Present</strong><br><span>Voting Member, ASCE Surface Water Hydrology Technical Committee</span></li><li><strong>2026–Present</strong><br><span>Executive Member, AGU Precipitation Technical Committee</span></li><li><strong>2025</strong><br><span>Treasurer, Tau Beta Pi, University of Memphis Chapter</span></li><li><strong>2024</strong><br><span>Judge, Helen Hardin Honors College Symposium, University of Memphis</span></li></ul></div>
+      <div><ul class="cv-list"><li><strong>2023–2024</strong><br><span>President, Nepalese Student Association at the University of Memphis</span></li><li><strong>2017</strong><br><span>Election Officer, Sindhupalchowk District, Nepal, serving more than 6,000 voters</span></li><li><strong>Reviewer</strong><br><span>Journal of Hydrologic Engineering, Journal of Open Source Software, and related environmental journals</span></li></ul></div>
+    </div>
+  </div>
+</section>
+
 <!-- ─── CV ───────────────────────────────────────────────────── -->
 <section id="cv" style="text-align:center;background:linear-gradient(180deg,transparent,rgba(14,165,233,0.04),transparent)">
   <div class="container-xl" data-aos="fade-up">
@@ -684,13 +905,13 @@
     </p>
     <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:1rem">
       <a href="docs/General_CV.pdf" target="_blank" class="btn-primary-glow">
-        <i class="fas fa-file-pdf"></i> Download CV
+        Download CV
       </a>
       <a href="https://Nischalcs50.github.io" target="_blank" class="btn-outline-glow">
-        <i class="fas fa-globe"></i> Personal Website
+        Personal Website
       </a>
       <a href="https://github.com/Nischalcs50" target="_blank" class="btn-outline-glow">
-        <i class="fab fa-github"></i> GitHub
+        GitHub
       </a>
     </div>
   </div>
@@ -720,12 +941,13 @@
     <a href="https://www.linkedin.com/in/nischal-kafle-67073a195/" target="_blank"><i class="fab fa-linkedin me-1"></i>LinkedIn</a>
     <a href="https://github.com/Nischalcs50" target="_blank"><i class="fab fa-github me-1"></i>GitHub</a>
   </div>
-  <p>© 2025 Nischal Kafle · Ph.D. Candidate, University of Memphis 🇳🇵</p>
+  <p>© 2026 Nischal Kafle · Water Resources Engineer · University of Memphis</p>
 </footer>
 
 <!-- ─── SCRIPTS ───────────────────────────────────────────────── -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="publications.js"></script>
 <script>
 // ── INIT AOS ──────────────────────────────────────────────────────
 AOS.init({ duration: 750, once: true, offset: 80 });
@@ -859,8 +1081,7 @@ const researchData = [
   { emoji: '🛰️', title: 'Rain-Gauge Network Density Impact', body: 'Studying how spatial/temporal resolution of rain-gauge networks affects DDF estimates. <em>(AGU & ASCE-EWRI 2024)</em>' },
   { emoji: '🏙️', title: 'Urban Flood Modeling – Memphis', body: 'Simulated flood events in underserved South Memphis using PCSWMM; created flood maps & animations for city planning. Engaged 60+ residents.' },
   { emoji: '📉', title: 'GCM Bias Correction & Downscaling', body: 'Compared statistical methods (QM, DQM, UQM) in Chilean basins under climate change scenarios.' },
-  { emoji: '🧘', title: 'Vedanta & Sarvamnaya Tantra', body: 'Investigating "Who is the Seer and what is actually Seen?" through personal experiments and Upanishadic frameworks.' },
-];
+  ];
 
 const grid = document.getElementById('research-grid');
 researchData.forEach((r, i) => {
