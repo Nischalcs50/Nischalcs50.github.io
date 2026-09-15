@@ -179,18 +179,18 @@
     .section-label {
       display: inline-flex; align-items: center; gap: 0.5rem;
       font-family: var(--ff-mono); font-size: 0.75rem; color: var(--teal);
-      letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.75rem;
+      letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem;
     }
     .section-label::before { content:'//'; opacity: 0.5; }
     .section-title {
       font-family: var(--ff-display);
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      font-weight: 700; color: var(--white);
+      font-size: clamp(1.6rem, 3vw, 2.25rem);
+      font-weight: 600; color: var(--white);
       margin-bottom: 1rem;
     }
     .section-title em { font-style: italic; color: var(--teal); }
     .divider {
-      width: 60px; height: 3px;
+      width: 60px; height: 2px;
       background: linear-gradient(90deg, var(--teal), var(--cyan));
       border-radius: 2px; margin-bottom: 3rem;
     }
@@ -225,12 +225,12 @@
     .about-quote {
       font-family: var(--ff-display);
       font-style: italic;
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       color: var(--light);
       border-left: 3px solid var(--teal);
       padding-left: 1.25rem;
       margin: 1.5rem 0;
-      line-height: 1.6;
+      line-height: 1.4;
     }
     .tag-cloud { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
     .tag {
@@ -380,17 +380,17 @@
     ::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
 
     /* ─── ACADEMIC CV REFINEMENT ───────────────────────────────── */
-    body { font-size: 18px; line-height: 1.75; }
+    body { font-size: 14px; line-height: 1.1; }
     html, body { overflow-x: clip; }
-    section { padding: 7rem 1.5rem; }
-    .section-title { font-size: clamp(2.2rem, 4vw, 3.6rem); }
-    .section-label { font-size: 0.82rem; }
+    section { padding: 5rem 1.2rem; }
+    .section-title { font-size: clamp(1.5rem, 3vw, 2rem); }
+    .section-label { font-size: 0.6rem; }
     .cv-lead { max-width: 780px; color: var(--light); font-size: clamp(1.15rem, 2vw, 1.35rem); line-height: 1.8; }
     .hero-tag { background: transparent; border: 0; padding: 0; font-size: 0.9rem; }
-    .hero-chips { gap: 0.35rem 1.3rem; }
+    .hero-chips { gap: 0.35rem 1.1rem; }
     .chip { background: transparent; border: 0; border-radius: 0; padding: 0; color: var(--muted); font-size: 0.95rem; }
     .chip:hover { background: transparent; border-color: transparent; transform: none; color: var(--white); }
-    .academic-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 3rem; }
+    .academic-grid { display: grid; grid-template-columns: 1fr; gap: 0; }
     .academic-entry { padding: 1.2rem 0 1.4rem; border-top: 1px solid var(--border); }
     .academic-year { color: var(--teal); font-family: var(--ff-mono); font-size: 0.82rem; letter-spacing: 0.08em; }
     .academic-entry h3 { color: var(--white); font-size: 1.25rem; margin: 0.25rem 0; }
@@ -399,7 +399,7 @@
     .interest-list li, .skill-list li { color: var(--light); font-size: 1.08rem; }
     .interest-list li::before { content: '—'; color: var(--teal); margin-right: 0.55rem; }
     .cv-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; }
-    .cv-subtitle { color: var(--white); font-family: var(--ff-display); font-size: 1.55rem; margin-bottom: 1rem; }
+    .cv-subtitle { color: var(--white); font-family: var(--ff-display); font-size: 1.25rem; margin-bottom: 1rem; }
     .cv-list { list-style: none; padding: 0; margin: 0; }
     .cv-list li { padding: 0.85rem 0; border-top: 1px solid var(--border); color: var(--light); font-size: 1rem; }
     .cv-list strong { color: var(--white); }
@@ -434,10 +434,11 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#education">Education</a></li>
-      <li><a href="#research-profile">Research Interests</a></li>
+      <!-- <li><a href="#research-profile">Research Interests</a></li> -->
       <li><a href="#research">Current Research</a></li>
-      <li><a href="#proposals">Proposals</a></li>
+      <!-- <li><a href="#proposals">Proposals</a></li> -->
       <li><a href="#publications">Publications</a></li>
+      <!-- <li><a href="#research-profile">Research</a></li> -->
       <li><a href="#awards">Awards</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#teaching">Teaching</a></li>
@@ -490,14 +491,14 @@
     </div>
     <div class="about-grid">
       <div data-aos="fade-right">
-        <p class="cv-lead" style="margin-bottom:1.25rem;">
+        <p class="cv-lead" style="margin-bottom:1.1rem;">
           I am a water resources engineer and researcher specializing in
           <strong style="color:var(--teal)">stochastic hydrology</strong>,
           <strong style="color:var(--teal)">meteorology</strong>, and engineering applications. My research improves
           modeling of short-duration extreme rainfall for urban infrastructure design, climate resilience,
           and flood risk management.
         </p>
-        <p style="color:var(--muted);margin-bottom:1.5rem;">
+        <p style="color:var(--muted);margin-bottom:1.1rem;">
           <strong style="color:var(--light)">Advisor:</strong>
           <a href="https://www.memphis.edu/ce/people/cimeier.php" target="_blank" style="color:var(--teal)">
             Dr. Claudio Meier</a>, University of Memphis
@@ -505,15 +506,17 @@
         <div class="about-quote">
           "Science, to me, is a process of decoding the unseen — especially where water and uncertainty meet..."
         </div>
-        <div class="tag-cloud">
-          <span class="tag">DDF Curves</span>
-          <span class="tag">Bayesian Stats</span>
-          <span class="tag">Transformers</span>
-          <span class="tag">PCSWMM</span>
-          <span class="tag">nsEVDx</span>
-          <span class="tag">Radar Data</span>
-          <span class="tag">GCM Downscaling</span>
-          <span class="tag">Partial Duration Series</span>
+        <div class="interest-list">
+          <strong style="color:var(--teal);font-size:1.1rem">Interest</strong>
+          <ul>
+            <li>Hydroclimatic extremes</li>
+            <li>Stochastic hydrology</li>
+            <li>Urban hydrology</li>
+            <li>Climate change impacts</li>
+            <li>Hydrologic and hydrodynamic modeling</li>
+            <li>Software development</li>
+            <li>AI and machine learning for water resources</li>
+          </ul>
         </div>
       </div>
       <div data-aos="fade-left" class="about-portrait glass-card" style="padding:1.5rem">
@@ -543,26 +546,6 @@
       <div class="academic-entry"><div class="academic-year">2024</div><h3>MS in Civil Engineering, Water Resources</h3><p>The University of Memphis, Memphis, Tennessee<br>GPA: 3.95</p></div>
       <div class="academic-entry"><div class="academic-year">2014</div><h3>BS in Civil Engineering</h3><p>Tribhuvan University, IOE Central Campus, Pulchowk, Nepal<br>Equivalent GPA: 3.92</p></div>
     </div>
-  </div>
-</section>
-
-<!-- ─── RESEARCH PROFILE ──────────────────────────────────────── -->
-<section id="research-profile" style="background:linear-gradient(180deg,transparent,rgba(14,165,233,0.035),transparent)">
-  <div class="container-xl">
-    <div data-aos="fade-up">
-      <div class="section-label">Research Interests</div>
-      <h2 class="section-title">Questions at the <em>Water–Climate Boundary</em></h2>
-      <div class="divider"></div>
-    </div>
-    <ul class="interest-list" data-aos="fade-up">
-      <li>Hydroclimatic extremes</li>
-      <li>Stochastic hydrology</li>
-      <li>Urban hydrology</li>
-      <li>Climate change impacts</li>
-      <li>Hydrologic and hydrodynamic modeling</li>
-      <li>Software development</li>
-      <li>AI and machine learning for water resources</li>
-    </ul>
   </div>
 </section>
 
@@ -1072,7 +1055,7 @@ setInterval(galleryNext, 5000);
 // ── RESEARCH CARDS ─────────────────────────────────────────────────
 const researchData = [
   { emoji: '📦', title: 'nsEVDx Python Library', body: 'Open-source Python package for modeling non-stationary extreme value distributions. <a href="https://github.com/Nischalcs50/nsEVDx" target="_blank" style="color:var(--teal)">View on GitHub →</a>' },
-  { emoji: '📊', title: 'Extracting hazard signal from noisy rainfall field', body: 'Proposed neighborhood based method to detect spatially coherent trend in short-duration extreme rainfall.' },
+  { emoji: '📊', title: 'Extracting reliable climate signal from noisy rainfall field', body: 'Proposed neighborhood based method to detect spatially coherent trend in short-duration extreme rainfall.' },
   { emoji: '🌦️', title: 'Remote Sensing + ML', body: 'Integrating Remote Sensing and Transformer architectures for improved drought and flood prediction.' },
   { emoji: '🔍', title: 'Neighborhood-based Trend Detection', body: 'A novel spatial method to enhance ability to detect trends in extreme rainfall. <em>(Submitted)</em>' },
   { emoji: '📈', title: 'Effect of Minimum Interevent Time (MIT)', body: 'Evaluating the effect of MIT choices on regional DDF curves. <em>(under review)</em>' },
