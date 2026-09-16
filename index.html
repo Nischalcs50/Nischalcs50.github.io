@@ -31,6 +31,9 @@
       --border:  rgba(255,255,255,0.08);
       --shadow:  0 24px 60px rgba(0,0,0,0.4);
       --radius:  18px;
+      --pastel-blue: #9dd9e8;
+      --pastel-gold: #e8c98a;
+      --pastel-sage: #a8d5ba;
       --ff-display: 'Playfair Display', Georgia, serif;
       --ff-body:    'DM Sans', sans-serif;
       --ff-mono:    'JetBrains Mono', monospace;
@@ -329,16 +332,13 @@
     .timeline-list li::before { content:'→'; position: absolute; left: 0; color: var(--teal); }
 
     /* ─── GALLERY ───────────────────────────────────────────────── */
-    .gallery-track-wrap { overflow: hidden; border-radius: var(--radius); position: relative; }
+    .gallery-track-wrap { overflow: hidden; border: 1px solid var(--border); border-radius: 14px; background: rgba(255,255,255,0.03); }
     #gallery-track { display: flex; transition: transform 0.6s cubic-bezier(.4,0,.2,1); }
-    #gallery-track img {
-      flex: 0 0 50%; height: 400px; object-fit: contain;
-      width: 100%;
-      padding: 0 0.25rem;
-      background: #0b0732; /* Optional: for letterboxing effect */
-      display: block;
-    }
-    @media (max-width: 600px) { #gallery-track img { flex: 0 0 100%; } }
+    .gallery-slide { flex: 0 0 50%; min-width: 0; padding: 1rem; margin: 0; }
+    .gallery-slide img { width: 100%; height: 330px; object-fit: contain; display: block; background: #0b0732; border-radius: 8px; }
+    .gallery-slide figcaption { padding: 0.8rem 0.1rem 0; color: var(--light); font-size: 0.9rem; text-align: center; }
+    .gallery-slide figcaption span { display: block; color: var(--pastel-blue); font: 0.68rem var(--ff-mono); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.25rem; }
+    @media (max-width: 600px) { .gallery-slide { flex-basis: 100%; } }
     .gallery-controls { display: flex; justify-content: center; gap: 0.75rem; margin-top: 1.25rem; }
     .gallery-btn {
       width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
@@ -392,7 +392,7 @@
     .chip:hover { background: transparent; border-color: transparent; transform: none; color: var(--white); }
     .academic-grid { display: grid; grid-template-columns: 1fr; gap: 0; }
     .academic-entry { padding: 1.2rem 0 1.4rem; border-top: 1px solid var(--border); }
-    .academic-year { color: var(--teal); font-family: var(--ff-mono); font-size: 0.82rem; letter-spacing: 0.08em; }
+    .academic-year { color: var(--pastel-blue); font-family: var(--ff-mono); font-size: 0.82rem; letter-spacing: 0.08em; }
     .academic-entry h3 { color: var(--white); font-size: 1.25rem; margin: 0.25rem 0; }
     .academic-entry p { color: var(--muted); font-size: 1rem; margin: 0; }
     .interest-list, .skill-list { display: flex; flex-wrap: wrap; gap: 0.7rem 1.5rem; list-style: none; padding: 0; }
@@ -402,12 +402,14 @@
     .cv-subtitle { color: var(--white); font-family: var(--ff-display); font-size: 1.25rem; margin-bottom: 1rem; }
     .cv-list { list-style: none; padding: 0; margin: 0; }
     .cv-list li { padding: 0.85rem 0; border-top: 1px solid var(--border); color: var(--light); font-size: 1rem; }
-    .cv-list strong { color: var(--white); }
+    .cv-list strong { color: var(--pastel-gold); }
     .cv-list span { color: var(--muted); }
     .plain-link { color: var(--teal); text-decoration: underline; text-decoration-color: rgba(14,165,233,0.35); text-underline-offset: 0.2em; }
     .plain-link:hover { color: var(--white); }
     .publication-entry p { font-size: 1rem; }
-    #photo, #trex-game { display: none; }
+    #trex-game { display: none; }
+    .section-title em { color: var(--pastel-blue); }
+    .stat-card::before { background: linear-gradient(90deg, var(--pastel-blue), var(--pastel-sage)); }
     #about { overflow-x: clip; }
     .about-grid, .publication-entry, .cv-columns, .academic-grid { min-width: 0; }
     .about-portrait { max-width: 100%; min-width: 0; }
@@ -575,38 +577,6 @@
     <div class="cv-columns" data-aos="fade-up">
       <div><h3 class="cv-subtitle">Funded Research</h3><ul class="cv-list"><li><strong>2024 · TDEC</strong><br><span>HydroDisconnect Framework for Effective Placement of Decentralized Stormwater Control Measures. Role: Proposal development; PI: Prof. C. Meier. Awarded $500k.</span></li></ul></div>
       <div><h3 class="cv-subtitle">Submitted Proposals</h3><ul class="cv-list"><li><strong>2026 · TDOT</strong><br><span>Utilization of Open-Source Data to Monitor Slope Movement via AI or Machine Learning in a GIS Environment and Corridor Risk Prioritization. Role: Co-PI; budget: $259k; under review.</span></li><li><strong>2025 · NASA NSPIRES</strong><br><span>Leveraging the HydroDisconnect Framework for More Nuanced Characterization of Hydrologic Variables and Their Influence on Hydrologic Response. Not selected.</span></li></ul></div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── GALLERY ───────────────────────────────────────────────── -->
-<section id="photo" style="background:linear-gradient(180deg, transparent, rgba(14,165,233,0.03), transparent)">
-  <div class="container-xl">
-    <div data-aos="fade-up">
-      <div class="section-label">Gallery</div>
-      <h2 class="section-title">Tracing the <em>Process</em></h2>
-      <div class="divider"></div>
-    </div>
-    <div data-aos="fade-up" data-aos-delay="200">
-      <div class="gallery-track-wrap">
-        <div id="gallery-track">
-          <img src="docs/1.jpg"  alt="Photo 1" />
-          <img src="docs/2.png"  alt="Photo 2" />
-          <img src="docs/3.JPG"  alt="Photo 3" />
-          <img src="docs/4.JPG"  alt="Photo 4" />
-          <img src="docs/5.bmp"  alt="Photo 5" />
-          <img src="docs/6.jpeg" alt="Photo 6" />
-          <img src="docs/7.bmp"  alt="Photo 7" />
-          <img src="docs/8.JPG"  alt="Photo 8" />
-          <img src="docs/9.jpg"  alt="Photo 9" />
-          <img src="docs/10.JPG" alt="Photo 10" />
-          <img src="docs/11.jpg" alt="Photo 11" />
-        </div>
-      </div>
-      <div class="gallery-controls">
-        <div class="gallery-btn" onclick="galleryPrev()"><i class="fas fa-chevron-left"></i></div>
-        <div class="gallery-btn" onclick="galleryNext()"><i class="fas fa-chevron-right"></i></div>
-      </div>
     </div>
   </div>
 </section>
@@ -916,6 +886,37 @@
   </div>
 </section>
 
+<!-- ─── GALLERY ───────────────────────────────────────────────── -->
+<section id="photo" style="background:linear-gradient(180deg, transparent, rgba(14,165,233,0.03), transparent)">
+  <div class="container-xl">
+    <div data-aos="fade-up">
+      <div class="section-label">Gallery</div>
+      <h2 class="section-title">Tracing the <em>Process</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div data-aos="fade-up" data-aos-delay="200">
+      <div class="gallery-track-wrap">
+        <div id="gallery-track">
+          <figure class="gallery-slide"><img src="docs/1.jpg" alt="This is Me"><figcaption><span>Research journal · 01</span>This is Me</figcaption></figure>
+          <figure class="gallery-slide"><img src="docs/2.png" alt="Trends in 30-min extreme precipitation in the SEUS"><figcaption><span>Research journal · 02</span>Trends in 30-min extreme precipitation in the SEUS</figcaption></figure>
+          <figure class="gallery-slide"><img src="docs/3.JPG" alt="Conference Presentation"><figcaption><span>Research journal · 03</span>Conference Presentation, NHERI Computational Symposium, UCLA, Los Angeles, California</figcaption></figure>
+          <figure class="gallery-slide"><img src="docs/4.JPG" alt="Award"><figcaption><span>Research journal · 04</span>Award</figcaption></figure>
+          <figure class="gallery-slide"><img src="docs/5.bmp" alt="A conceptual example for the problem of spatial dependence"><figcaption><span>Research journal · 05</span>A conceptual example for the problem of spatial dependence; see <a href="https://doi.org/10.22541/essoar.176281288.81066358/v1 ">https://doi.org/10.22541/essoar.176281288.81066358/v1 </a></figcaption></figure>
+          <figure class="gallery-slide"><img src="docs/6.jpeg" alt="Ned R. McWherter Library, University of Memphis"><figcaption><span>Research journal · 06</span>Ned R. McWherter Library, University of Memphis</figcaption></figure>
+          <figure class="gallery-slide"><img src="docs/8.JPG" alt="American Geophysical Union 2024"><figcaption><span>Research journal · 07</span>American Geophysical Union 2024</figcaption></figure>
+          <figure class="gallery-slide"><img src="docs/9.jpg" alt="Nedtalks, University of Memphis"><figcaption><span>Research journal · 08</span>Nedtalks, University of Memphis</figcaption></figure>
+          <figure class="gallery-slide"><img src="docs/10.JPG" alt="Urban Pluvial Flooding, S. Highland, Memphis (near UofM)"><figcaption><span>Research journal · 09</span>Urban Pluvial Flooding, S. Highland, Memphis (near UofM)</figcaption></figure>
+          <figure class="gallery-slide"><img src="docs/11.jpg" alt="Milwaukee, Wisconsin"><figcaption><span>Research journal · 11</span>"Milwaukee, Wisconsin</figcaption></figure>
+        </div>
+      </div>
+      <div class="gallery-controls">
+        <div class="gallery-btn" onclick="galleryPrev()"><i class="fas fa-chevron-left"></i></div>
+        <div class="gallery-btn" onclick="galleryNext()"><i class="fas fa-chevron-right"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ─── FOOTER ────────────────────────────────────────────────── -->
 <footer>
   <div class="footer-links">
@@ -1059,7 +1060,7 @@ const researchData = [
   { emoji: '🌧️', title: 'Multi-scale Spatial Organization and Evolution of Extreme Precipitation', body: 'Investigating how spatial structures of extreme precipitation vary across scales, seasons, and climate regimes using rain gauge and radar observations.' },
   { emoji: '🏙️', title: 'Urban Hydrology', body: 'Rainfall-runoff modeling and flood risk assessment in urban environments.' },
   { emoji: '🧮', title: 'Hydrodologic Connectivity', body: 'Utilizing hydrologic connectivity based metrics to study the changes in high- and low-flow characteristics of urban watersheds under various conditions.' },
-  { emoji: '🌊', title: 'Flood Frequency Analysis', body: 'Investigating the implications of implicit and explict assumptions in Bulletin 17C in flood frequency analysis.' },
+  { emoji: '🌊', title: 'Flood Frequency Analysis', body: 'Investigating the implications of implicit and explicit assumptions in Bulletin 17C in flood frequency analysis.' },
   { emoji: '🛰️', title: 'Remote Sensing + ML', body: 'Integrating Remote Sensing and Transformer architectures for improved drought and flood prediction.' },
   { emoji: '⛅', title: 'Rainfall Disaggregation studies', body: 'Disaggregating daily rainfall to sub-daily (n-minute) intervals using transformer models. <em>(In preparation)</em>' },
   { emoji: '📉', title: 'GCM Bias Correction & Downscaling', body: 'Advancing statistical methods to correct biases in Global Circulation Models and downscale them to local scales.' },
