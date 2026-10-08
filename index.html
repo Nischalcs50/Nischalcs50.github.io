@@ -407,6 +407,15 @@
     .plain-link { color: var(--teal); text-decoration: underline; text-decoration-color: rgba(14,165,233,0.35); text-underline-offset: 0.2em; }
     .plain-link:hover { color: var(--white); }
     .publication-entry p { font-size: 1rem; }
+    .blogpost-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+    .blogpost-card {
+      display: flex; flex-direction: column; height: 100%;
+      padding: 1.5rem; border: 1px solid var(--border); border-radius: 14px;
+      background: var(--glass); transition: transform 0.3s, border-color 0.3s;
+    }
+    .blogpost-card:hover { transform: translateY(-4px); border-color: rgba(14,165,233,0.45); }
+    .blogpost-card h3 { color: var(--white); font-size: 1.15rem; line-height: 1.4; margin-bottom: 1.25rem; }
+    .blogpost-card a { color: var(--teal); margin-top: auto; }
     #trex-game { display: none; }
     .section-title em { color: var(--pastel-blue); }
     .stat-card::before { background: linear-gradient(90deg, var(--pastel-blue), var(--pastel-sage)); }
@@ -418,6 +427,7 @@
     @media (max-width: 700px) {
       section { padding: 2.5rem 1rem; }
       .academic-grid, .cv-columns { grid-template-columns: 1fr; gap: 0; }
+      .blogpost-grid { grid-template-columns: 1fr; }
       .cv-lead { font-size: 1.1rem; }
       .publication-entry p { font-size: 0.98rem; }
     }
@@ -446,6 +456,7 @@
       <li><a href="#teaching">Teaching</a></li>
       <li><a href="#service">Service</a></li>
       <li><a href="#cv">CV</a></li>
+      <li><a href="#blogposts">Blogpost</a></li>
     </ul>
   </div>
 </nav>
@@ -909,6 +920,27 @@
         <div class="gallery-btn" onclick="galleryPrev()"><i class="fas fa-chevron-left"></i></div>
         <div class="gallery-btn" onclick="galleryNext()"><i class="fas fa-chevron-right"></i></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BLOGPOSTS ─────────────────────────────────────────────── -->
+<section id="blogposts">
+  <div class="container-xl">
+    <div data-aos="fade-up">
+      <div class="section-label">Writing</div>
+      <h2 class="section-title">My <em>Blogposts</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="blogpost-grid" data-aos="fade-up">
+      <article class="blogpost-card">
+        <h3>Spatially Dependent Extreme Precipitation and Its Engineering Implications</h3>
+        <a href="https://communities.springernature.com/posts/spatially-dependent-extreme-precipitation-and-its-engineering-implications?access_token=eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2Mjg0ODUsImNvbnRlbnRfaWQiOjMyNjg1OCwidGVuYW50X2lkIjo0NiwianRpIjoiZmY4ZGY0N2ZiODI3ZjM1NiIsImV4cCI6MTc5MTQwMDk2Mn0.LG6BCVqhAgJcE-F4Jqou5rVTfiuoCHTBmXnr7dzz3c&utm_source=user_mailer&utm_medium=email&utm_campaign=send_publish_notification_to_follower" target="_blank" rel="noopener noreferrer">Read on Springer Nature <i class="fas fa-arrow-up-right-from-square ms-1"></i></a>
+      </article>
+      <article class="blogpost-card">
+        <h3>Fitting Non-stationary Generalized Extreme Value (GEV) Distribution to Rainfall Annual Maxima Series in Python using nsEVDx</h3>
+        <a href="https://medium.com/@nkafle.29/fitting-non-stationary-generalized-extreme-value-distribution-to-rainfall-annual-maxima-series-in-5076df29983f" target="_blank" rel="noopener noreferrer">Read on Medium <i class="fas fa-arrow-up-right-from-square ms-1"></i></a>
+      </article>
     </div>
   </div>
 </section>
